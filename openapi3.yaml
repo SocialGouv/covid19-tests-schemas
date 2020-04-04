@@ -3,17 +3,43 @@ info:
   title: Schema de définition des tests au COVID-19
   description: Detail du schéma de données test COVID-19
   version: "1.0.0"
-  # TODO : liste des champs obligatoires ?
-servers:
-  - url: "http://localhost:4000"
-    variables: {}
 paths:
   "/test":
-    get:
-      summary: get test definition
+    post:
+      description: Paramètres du test d'orientation COVID-19
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PostTestResponse"
+          description: Orientation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostTestRequest"
+        required: true
 
 components:
   schemas:
+    type: object
+    PostTestRequest:
+      description: Corps de la requête POST pour enregistrer le test
+      required:
+        - orientation
+      properties:
+        test:
+          anyOf:
+            - $ref: '#/components/schemas/Test'
+
+    PostTestResponse:
+      type: object
+      description: Réponse de l'envoi du test
+      example:
+        data:
+          success: true
+
     # Schema d'un test
     Test:
       type: object
