@@ -1,0 +1,355 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Schema de définition des tests au COVID-19",
+    "description": "Detail du schéma de données test COVID-19",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4000",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/test": {
+      "get": {
+        "summary": "get test definition"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Test": {
+        "type": "object",
+        "properties": {
+          "nom": {
+            "title": "Nom du test",
+            "type": "string"
+          },
+          "fabricant": {
+            "title": "Fabriquant",
+            "type": "string",
+            "example": [
+              "PHILIPS",
+              "THOMSON",
+              "AKAI"
+            ]
+          },
+          "paysFabrication": {
+            "title": "Pays de fabrication",
+            "$ref": "#/components/schemas/Pays"
+          },
+          "dateMiseSurLeMarche": {
+            "$ref": "#/components/schemas/DateMiseSurMarche"
+          },
+          "paysDistribution": {
+            "title": "Pays de distribution",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Pays"
+            }
+          },
+          "disponibilitesReglementaires": {
+            "title": "Disponibilités réglementaire",
+            "type": "array",
+            "minLength": 0,
+            "maxLength": 5,
+            "items": {
+              "$ref": "#/components/schemas/DisponibiliteReglementaire"
+            }
+          },
+          "normes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Norme"
+            }
+          },
+          "referencesValidation": {
+            "title": "Références bibliographiques pour la validation du test",
+            "type": "string"
+          },
+          "referencesPostValidation": {
+            "title": "Références bibliographiques POST validation du test",
+            "type": "string"
+          },
+          "typeTest": {
+            "$ref": "#/components/schemas/TypeTest"
+          },
+          "technologie": {
+            "$ref": "#/components/schemas/TechnologieTest"
+          },
+          "courbeCinetiquePositive": {
+            "title": "Courbe type de cinétique de positivité du test",
+            "type": "string"
+          },
+          "typePrelevement": {
+            "title": "Type de prélèvement nécessaire au test",
+            "type": "string"
+          },
+          "consommablesNecessaires": {
+            "title": "Consommables nécessaires au test",
+            "type": "string"
+          },
+          "modalitesPrelevement": {
+            "title": "Modalités de prélèvement",
+            "type": "string"
+          },
+          "modalitesAcheminementPrelevements": {
+            "title": "Modalités d'acheminement des prélèvements. (triple emballage? Chaîne du froid?...)",
+            "type": "string"
+          },
+          "typeStructureCapable": {
+            "title": "Type de structures en mesure de faire le test",
+            "type": "string",
+            "minimum": 0,
+            "maximum": 1000000
+          },
+          "nombreStructuresCapablesFrance": {
+            "title": "Nombre de structures en mesure de faire le test sur le territoire nationnal (si besoin à déciner en région)",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000
+          },
+          "nombreAnalysesPossiblesJour": {
+            "title": "Nombre d'analyses possibles au niveau nationnal par jour (si le consommable n'est pas un facteur limitant). (Au jour de l'analyse)",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100000
+          },
+          "nombreAnalysesPossiblesAvenirProche": {
+            "title": "Nombre d'analyses possibles au niveau national par jour (si le consommable n'est pas un facteur limitant). (dans un avenir proche (moins d'un mois)",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100000
+          },
+          "facteursLimitantDisponibilite": {
+            "title": "Facteurs limitants d'une disponibilité de masse",
+            "type": "string"
+          },
+          "delaiReponse": {
+            "title": "Délais de réponse au test",
+            "description": "en minutes",
+            "type": "integer"
+          },
+          "periodePositiviteDateContamination": {
+            "title": "Période de positivité du test par rapport à la date probable de contamination (mettre NC si non connue)",
+            "type": "string"
+          },
+          "periodePositiviteDateJ1SignesCliniques": {
+            "title": "Période de positivité du test par rapport au J1 des signes cliniques (mettre NC si non connue)",
+            "type": "string"
+          },
+          "sensibleSecretionOuLocalisation": {
+            "title": "Test sensible à la sécretion virale intermittente ou de localisation variée",
+            "type": "boolean",
+            "nullable": true
+          },
+          "valeurPredictivePositive": {
+            "title": "Valeur Prédictive positive",
+            "type": "integer"
+          },
+          "valeurPredictiveNegative": {
+            "title": "Valeur Prédictive négative",
+            "type": "integer"
+          },
+          "sensibilite": {
+            "title": "Sensibilité",
+            "type": "integer"
+          },
+          "specificite": {
+            "title": "Spécificité",
+            "type": "integer"
+          },
+          "facteursDeVariation": {
+            "title": "Facteurs faisant varier VPP/VPN/Se/Sp",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacteurDeVariation"
+            }
+          },
+          "fourchetteCoutBasse": {
+            "title": "Fourchette de coût basse du test (par test)",
+            "type": "integer"
+          },
+          "fourchetteCoutHaute": {
+            "title": "Fourchette de coût basse du test (par test)",
+            "type": "integer"
+          },
+          "disponibiliteNational": {
+            "$ref": "#/components/schemas/DisponibiliteNational"
+          },
+          "disponibiliteInternational": {
+            "$ref": "#/components/schemas/DisponibiliteInternational"
+          },
+          "indicationsTest": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IndicationTest"
+            }
+          },
+          "strategiesCanauxDistribution": {
+            "title": "Stratégies de canaux de distribution des tests",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StrategieCanauxDistribution"
+            }
+          },
+          "tauxPriseEnChargeSSPrevu": {
+            "title": "Taux de Prise en charge SS prévu.",
+            "type": "number"
+          },
+          "nombreDeTestsDepuisDebutEpidemie": {
+            "title": "Nombre de tests réalisés depuis le début de l'épidémie COVID 19",
+            "type": "integer"
+          },
+          "eventuellesComplications": {
+            "title": "Eventuelles complications liées au test",
+            "type": "string"
+          },
+          "autresInterets": {
+            "title": "Autres intérêts du test",
+            "example": "dépistage de dg différentiels ou associés si puces multiplex",
+            "type": "string"
+          },
+          "commentaires": {
+            "title": "Autres intérêts du test",
+            "example": "dépistage de dg différentiels ou associés si puces multiplex",
+            "type": "string"
+          }
+        }
+      },
+      "Pays": {
+        "description": "Pays à la norme ISO3361-alpha2",
+        "example": "FR",
+        "title": "Pays",
+        "type": "string"
+      },
+      "DateMiseSurMarche": {
+        "example": "2019-12-25",
+        "title": "Date de mise sur le marché",
+        "type": "string",
+        "format": "date-time"
+      },
+      "DisponibiliteReglementaire": {
+        "enum": [
+          "Non disponible",
+          "Disponible  en France uniquement dans le cadre d'études",
+          "Disponible hors europe",
+          "Autorisation mise sur le marché Européenne",
+          "Autorisation mise sur le marché en France",
+          "Autre cadre de disponibilité réglementaire",
+          "Inconnue"
+        ],
+        "title": "Disponibilité réglementaire",
+        "type": "string"
+      },
+      "Norme": {
+        "enum": [
+          "CE",
+          "NF",
+          "Inconnue"
+        ],
+        "title": "Norme / Marquage",
+        "type": "string"
+      },
+      "TypeTest": {
+        "enum": [
+          "Qualitatif",
+          "Quantitatif"
+        ],
+        "title": "Type de test",
+        "type": "string"
+      },
+      "TechnologieTest": {
+        "enum": [
+          "PCR",
+          "Sérologie classique",
+          "TROD"
+        ],
+        "title": "Type de test",
+        "type": "string"
+      },
+      "FacteurDeVariation": {
+        "title": "Facteur faisant varier VPP/VPN/Se/Sp",
+        "type": "string",
+        "enum": [
+          "Immunodépression",
+          "Grossesse",
+          "Âge",
+          "Immunité croisée (préciser avec quoi)",
+          "Autre"
+        ]
+      },
+      "DisponibiliteNational": {
+        "title": "Nombre de tests disponibles au niveau national",
+        "type": "object",
+        "properties": {
+          "count": {
+            "title": "Nombre de tests disponibles au niveau national",
+            "type": "integer"
+          },
+          "date": {
+            "example": "2019-12-25",
+            "title": "Date de la donnée",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "DisponibiliteInternational": {
+        "title": "Nombre de tests disponibles au niveau internationnal",
+        "type": "object",
+        "properties": {
+          "count": {
+            "title": "Nombre de tests disponibles au niveau internationnal",
+            "type": "integer"
+          },
+          "modalites": {
+            "title": "Modalités d'acheminement",
+            "type": "string"
+          },
+          "delais": {
+            "title": "Delais disponibles pour la livraison",
+            "type": "string"
+          },
+          "pays": {
+            "title": "Pays",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Pays"
+            }
+          },
+          "date": {
+            "example": "2019-12-25",
+            "title": "Date de la donnée",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "IndicationTest": {
+        "title": "Indication du test",
+        "type": "string",
+        "enum": [
+          "Diagnostic pour prise en charge individuelle",
+          "Diagnostic pour cohorting",
+          "Diagnostic pour levée d'isolement personnel",
+          "Etude populationnelle pour guider les stratégies",
+          "Autre"
+        ]
+      },
+      "StrategieCanauxDistribution": {
+        "title": "Stratégie de canaux de distribution des tests",
+        "type": "string",
+        "enum": [
+          "Hôpital",
+          "Médecine de ville",
+          "Laboratoires de ville",
+          "Pharmacies",
+          "Autre"
+        ]
+      }
+    }
+  }
+}
