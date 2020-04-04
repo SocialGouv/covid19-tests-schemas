@@ -6,11 +6,15 @@
   "author": "Julien Bouquillon <julien.bouquillon@sg.social.gouv.fr>",
   "license": "MIT",
   "devDependencies": {
+    "redoc": "^2.0.0-rc.25",
+    "redoc-cli": "^0.9.7"
   },
-  "dependencies": {
-    "yaml": "^1.8.3"
-  },
+  "dependencies": {},
+  "redocOptions": "--options.hideDownloadButton --options.expandResponses=all --options.expandSingleSchemaField --options.hideHostname --options.expandDefaultServerVariables",
   "scripts": {
-    "yaml2json": "node ./scripts/yaml2json > openapi3.json"
+    "yaml2json": "node ./scripts/yaml2json > openapi3.json",
+    "start": "redoc-cli serve ./openapi3.yaml -p 3003 $npm_package_redocOptions",
+    "build": "redoc-cli bundle -o dist ./openapi3.yaml $npm_package_redocOptions && yarn yaml2json",
+    "test": "exit 0"
   }
 }
