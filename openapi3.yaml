@@ -6,7 +6,7 @@ info:
 paths:
   "/test":
     post:
-      description: Paramètres du test d'orientation COVID-19
+      description: Création d'un nouveau test au COVID-19
       responses:
         "201":
           content:
