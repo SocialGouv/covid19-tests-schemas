@@ -126,7 +126,7 @@ components:
           type: integer
           minimum: 0
           maximum: 100000
-        facteursLimitantDisponibilite:
+        facteursLimitantsDisponibilite:
           # champ texte ? pas de choix ?
           title: Facteurs limitants d'une disponibilité de masse
           type: string
