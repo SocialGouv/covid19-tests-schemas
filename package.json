@@ -4,6 +4,11 @@
   "main": "openapi3.json",
   "repository": "git@github.com:SocialGouv/covid19-tests-schemas.git",
   "license": "Apache-2.0",
+  "files": [
+    "openapi3.json",
+    "openapi3.yaml",
+    "README.md"
+  ],
   "devDependencies": {
     "redoc": "^2.0.0-rc.25",
     "redoc-cli": "^0.9.7",
