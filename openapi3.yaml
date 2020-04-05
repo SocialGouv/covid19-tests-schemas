@@ -126,7 +126,7 @@ components:
           type: integer
           minimum: 0
           maximum: 100000
-        facteursLimitantDisponibilite:
+        facteursLimitantsDisponibilite:
           # champ texte ? pas de choix ?
           title: Facteurs limitants d'une disponibilité de masse
           type: string
@@ -174,10 +174,10 @@ components:
         fourchetteCoutHaute:
           title: Fourchette de coût basse du test (par test)
           type: integer
-        disponibiliteNational:
-          "$ref": "#/components/schemas/DisponibiliteNational"
-        disponibiliteInternational:
-          "$ref": "#/components/schemas/DisponibiliteInternational"
+        disponibiliteNationale:
+          "$ref": "#/components/schemas/DisponibiliteNationale"
+        disponibiliteInternationale:
+          "$ref": "#/components/schemas/DisponibiliteInternationale"
         indicationsTest:
           # choix multiple ?
           type: array
@@ -257,7 +257,7 @@ components:
         - Âge
         - Immunité croisée (préciser avec quoi)
         - Autre
-    DisponibiliteNational:
+    DisponibiliteNationale:
       title: Nombre de tests disponibles au niveau national
       type: object
       properties:
@@ -269,7 +269,7 @@ components:
           title: Date de la donnée
           type: string
           format: date-time
-    DisponibiliteInternational:
+    DisponibiliteInternationale:
       title: Nombre de tests disponibles au niveau internationnal
       type: object
       properties:
