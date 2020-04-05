@@ -164,7 +164,7 @@
             "minimum": 0,
             "maximum": 100000
           },
-          "facteursLimitantDisponibilite": {
+          "facteursLimitantsDisponibilite": {
             "title": "Facteurs limitants d'une disponibilité de masse",
             "type": "string"
           },
@@ -217,11 +217,11 @@
             "title": "Fourchette de coût basse du test (par test)",
             "type": "integer"
           },
-          "disponibiliteNational": {
-            "$ref": "#/components/schemas/DisponibiliteNational"
+          "disponibiliteNationale": {
+            "$ref": "#/components/schemas/DisponibiliteNationale"
           },
-          "disponibiliteInternational": {
-            "$ref": "#/components/schemas/DisponibiliteInternational"
+          "disponibiliteInternationale": {
+            "$ref": "#/components/schemas/DisponibiliteInternationale"
           },
           "indicationsTest": {
             "type": "array",
@@ -322,7 +322,7 @@
           "Autre"
         ]
       },
-      "DisponibiliteNational": {
+      "DisponibiliteNationale": {
         "title": "Nombre de tests disponibles au niveau national",
         "type": "object",
         "properties": {
@@ -338,7 +338,7 @@
           }
         }
       },
-      "DisponibiliteInternational": {
+      "DisponibiliteInternationale": {
         "title": "Nombre de tests disponibles au niveau internationnal",
         "type": "object",
         "properties": {
