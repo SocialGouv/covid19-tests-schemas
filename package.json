@@ -15,6 +15,7 @@
     "yaml2json": "node ./scripts/yaml2json > openapi3.json",
     "start": "redoc-cli serve ./openapi3.yaml -p 3003 $npm_package_redocOptions",
     "build": "redoc-cli bundle -o docs/index.html ./openapi3.yaml $npm_package_redocOptions && yarn yaml2json",
-    "test": "exit 0"
+    "test": "exit 0",
+    "commit-docs": "./scripts/commit-docs.sh"
   }
 }
