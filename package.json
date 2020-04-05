@@ -1,13 +1,13 @@
 {
-  "name": "covid19-tests-schemas",
+  "name": "@socialgouv/covid19-tests-schemas",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "openapi3.json",
   "repository": "git@github.com:SocialGouv/covid19-tests-schemas.git",
-  "author": "Julien Bouquillon <julien.bouquillon@sg.social.gouv.fr>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "redoc": "^2.0.0-rc.25",
-    "redoc-cli": "^0.9.7"
+    "redoc-cli": "^0.9.7",
+    "semantic-release": "^17.0.4"
   },
   "dependencies": {},
   "redocOptions": "--options.hideDownloadButton --options.expandResponses=all --options.expandSingleSchemaField --options.hideHostname --options.expandDefaultServerVariables",
@@ -17,5 +17,19 @@
     "build": "redoc-cli bundle -o docs/index.html ./openapi3.yaml $npm_package_redocOptions && yarn yaml2json",
     "test": "exit 0",
     "commit-docs": "./scripts/commit-docs.sh"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
   }
 }
