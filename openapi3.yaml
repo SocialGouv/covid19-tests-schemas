@@ -64,6 +64,9 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/Pays"
+        distributeursFrance:
+          title: Distributeurs en France
+          type: string
         disponibilitesReglementaires: # choix multiple ?
           title: Disponibilités réglementaire
           type: array
@@ -178,11 +181,12 @@ components:
           "$ref": "#/components/schemas/DisponibiliteNationale"
         disponibiliteInternationale:
           "$ref": "#/components/schemas/DisponibiliteInternationale"
-        indicationsTest:
+        usagesTest:
           # choix multiple ?
+          title: Usages du test
           type: array
           items:
-            "$ref": "#/components/schemas/IndicationTest"
+            "$ref": "#/components/schemas/UsageTest"
         strategiesCanauxDistribution:
           title: Stratégies de canaux de distribution des tests
           type: array
@@ -194,8 +198,8 @@ components:
         nombreDeTestsDepuisDebutEpidemie:
           title: Nombre de tests réalisés depuis le début de l'épidémie COVID 19
           type: integer
-        eventuellesComplications:
-          title: Eventuelles complications liées au test
+        signalementsReactovigilance:
+          title: Signalements de réactovigilance
           type: string
         autresInterets:
           title: Autres intérêts du test
@@ -223,7 +227,6 @@ components:
         - Disponible  en France uniquement dans le cadre d'études
         - Disponible hors europe
         - Autorisation mise sur le marché Européenne
-        - Autorisation mise sur le marché en France
         - Autre cadre de disponibilité réglementaire
         - Inconnue
       title: Disponibilité réglementaire
@@ -245,7 +248,8 @@ components:
       enum:
         - PCR
         - Sérologie classique
-        - TROD
+        - Test rapide
+        - Autotest
       title: Type de test
       type: string
     FacteurDeVariation:
@@ -292,8 +296,8 @@ components:
           title: Date de la donnée
           type: string
           format: date-time
-    IndicationTest:
-      title: Indication du test
+    UsageTest:
+      title: Usage du test
       type: string
       enum:
         - Diagnostic pour prise en charge individuelle
