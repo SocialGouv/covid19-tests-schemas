@@ -68,8 +68,8 @@
             "title": "Nom du test",
             "type": "string"
           },
-          "fabricant": {
-            "title": "Fabriquant",
+          "producteur": {
+            "title": "Producteur",
             "type": "string",
             "example": [
               "PHILIPS",
@@ -77,23 +77,19 @@
               "AKAI"
             ]
           },
-          "paysFabrication": {
-            "title": "Pays de fabrication",
+          "paysProduction": {
+            "title": "Pays de production",
             "$ref": "#/components/schemas/Pays"
           },
           "dateMiseSurLeMarche": {
             "$ref": "#/components/schemas/DateMiseSurMarche"
           },
-          "paysDistribution": {
-            "title": "Pays de distribution",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Pays"
-            }
-          },
           "distributeursFrance": {
             "title": "Distributeurs en France",
-            "type": "string"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Distributeur"
+            }
           },
           "disponibilitesReglementaires": {
             "title": "Disponibilités réglementaire",
@@ -124,25 +120,26 @@
           "technologie": {
             "$ref": "#/components/schemas/TechnologieTest"
           },
+          "machinesNecessaires": {
+            "title": "Machines nécessaires",
+            "type": "string"
+          },
+          "ouvertureTest": {
+            "$ref": "#/components/schemas/OuvertureTest"
+          },
           "courbeCinetiquePositive": {
             "title": "Courbe type de cinétique de positivité du test",
             "type": "string"
           },
           "typePrelevement": {
-            "title": "Type de prélèvement nécessaire au test",
-            "type": "string"
+            "$ref": "#/components/schemas/TypePrelevement"
           },
           "consommablesNecessaires": {
             "title": "Consommables nécessaires au test",
             "type": "string"
           },
-          "modalitesPrelevement": {
-            "title": "Modalités de prélèvement",
-            "type": "string"
-          },
           "modalitesAcheminementPrelevements": {
-            "title": "Modalités d'acheminement des prélèvements. (triple emballage? Chaîne du froid?...)",
-            "type": "string"
+            "$ref": "#/components/schemas/ModalitesAcheminementPrelevement"
           },
           "typeStructureCapable": {
             "title": "Type de structures en mesure de faire le test",
@@ -151,7 +148,7 @@
             "maximum": 1000000
           },
           "nombreStructuresCapablesFrance": {
-            "title": "Nombre de structures en mesure de faire le test sur le territoire nationnal (si besoin à déciner en région)",
+            "title": "Nombre de structures en mesure de faire le test sur le territoire nationnal",
             "type": "integer",
             "minimum": 0,
             "maximum": 1000000
@@ -172,9 +169,8 @@
             "title": "Facteurs limitants d'une disponibilité de masse",
             "type": "string"
           },
-          "delaiReponse": {
-            "title": "Délais de réponse au test",
-            "description": "en minutes",
+          "vitesseAnalyse": {
+            "title": "Vitesse d'analyse en minutes",
             "type": "integer"
           },
           "periodePositiviteDateContamination": {
@@ -213,12 +209,12 @@
               "$ref": "#/components/schemas/FacteurDeVariation"
             }
           },
-          "fourchetteCoutBasse": {
-            "title": "Fourchette de coût basse du test (par test)",
+          "fourchettePrixBasse": {
+            "title": "Fourchette de prix basse du test (par test)",
             "type": "integer"
           },
-          "fourchetteCoutHaute": {
-            "title": "Fourchette de coût basse du test (par test)",
+          "fourchettePrixHaute": {
+            "title": "Fourchette de prix basse du test (par test)",
             "type": "integer"
           },
           "disponibiliteNationale": {
@@ -258,6 +254,10 @@
             "example": "dépistage de dg différentiels ou associés si puces multiplex",
             "type": "string"
           },
+          "pointsContact": {
+            "title": "Points de contact",
+            "type": "string"
+          },
           "commentaires": {
             "title": "Autres intérêts du test",
             "example": "dépistage de dg différentiels ou associés si puces multiplex",
@@ -289,10 +289,23 @@
         "title": "Disponibilité réglementaire",
         "type": "string"
       },
+      "Distributeur": {
+        "properties": {
+          "nom": {
+            "title": "Nom du distributeur",
+            "type": "string"
+          },
+          "nationalite": {
+            "title": "Nationalité du distributeur",
+            "$ref": "#/components/schemas/Pays"
+          }
+        }
+      },
       "Norme": {
         "enum": [
           "CE",
-          "NF",
+          "Validation CNR",
+          "Validation ANSM",
           "Inconnue"
         ],
         "title": "Norme / Marquage",
@@ -308,12 +321,47 @@
       },
       "TechnologieTest": {
         "enum": [
+          "Autotest",
           "PCR",
           "Sérologie classique",
-          "Test rapide",
-          "Autotest"
+          "Test antigénique",
+          "Test rapide"
         ],
-        "title": "Type de test",
+        "title": "Technologie de test",
+        "type": "string"
+      },
+      "OuvertureTest": {
+        "title": "Test ouvert / fermé",
+        "enum": [
+          "Ouvert",
+          "Fermé",
+          "NC"
+        ],
+        "type": "string"
+      },
+      "TypePrelevement": {
+        "title": "Type de prélèvement nécessaire au test",
+        "enum": [
+          "Sérum",
+          "Plasma",
+          "Sang",
+          "Micro-gouttes capillaires",
+          "Naso-pharyngé",
+          "Salive",
+          "Selles",
+          "Larmes",
+          "Autres"
+        ],
+        "type": "string"
+      },
+      "ModalitesAcheminementPrelevement": {
+        "title": "Modalités d'acheminement des prélèvements",
+        "enum": [
+          "Emballage simple",
+          "Triple emballage",
+          "Chaîne du froid",
+          "Autres"
+        ],
         "type": "string"
       },
       "FacteurDeVariation": {
@@ -323,13 +371,18 @@
           "Immunodépression",
           "Grossesse",
           "Âge",
-          "Immunité croisée (préciser avec quoi)",
+          "Immunité croisée",
           "Autre"
         ]
       },
       "DisponibiliteNationale": {
-        "title": "Nombre de tests disponibles au niveau national",
-        "type": "object",
+        "title": "Nombre de tests disponibles au niveau national par mois",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DisponibiliteNationaleDate"
+        }
+      },
+      "DisponibiliteNationaleDate": {
         "properties": {
           "count": {
             "title": "Nombre de tests disponibles au niveau national",
@@ -344,7 +397,7 @@
         }
       },
       "DisponibiliteInternationale": {
-        "title": "Nombre de tests disponibles au niveau internationnal",
+        "title": "Capacité de production",
         "type": "object",
         "properties": {
           "count": {
