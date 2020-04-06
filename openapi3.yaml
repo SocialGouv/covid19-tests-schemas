@@ -199,8 +199,7 @@ components:
           title: Points de contact
           type: string
         commentaires:
-          title: Autres intérêts du test
-          example: dépistage de dg différentiels ou associés si puces multiplex
+          title: Commentaires
           type: string
 
     # Champs utilisés
@@ -323,10 +322,7 @@ components:
           title: Delais disponibles pour la livraison
           type: string
         pays:
-          title: Pays
-          type: array
-          items:
-            "$ref": "#/components/schemas/Pays"
+          "$ref": "#/components/schemas/Pays"
         date:
           example: "2019-12-25"
           title: Date de la donnée
