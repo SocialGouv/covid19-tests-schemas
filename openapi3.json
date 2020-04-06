@@ -91,6 +91,10 @@
               "$ref": "#/components/schemas/Pays"
             }
           },
+          "distributeursFrance": {
+            "title": "Distributeurs en France",
+            "type": "string"
+          },
           "disponibilitesReglementaires": {
             "title": "Disponibilités réglementaire",
             "type": "array",
@@ -223,10 +227,11 @@
           "disponibiliteInternationale": {
             "$ref": "#/components/schemas/DisponibiliteInternationale"
           },
-          "indicationsTest": {
+          "usagesTest": {
+            "title": "Usages du test",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/IndicationTest"
+              "$ref": "#/components/schemas/UsageTest"
             }
           },
           "strategiesCanauxDistribution": {
@@ -244,8 +249,8 @@
             "title": "Nombre de tests réalisés depuis le début de l'épidémie COVID 19",
             "type": "integer"
           },
-          "eventuellesComplications": {
-            "title": "Eventuelles complications liées au test",
+          "signalementsReactovigilance": {
+            "title": "Signalements de réactovigilance",
             "type": "string"
           },
           "autresInterets": {
@@ -278,7 +283,6 @@
           "Disponible  en France uniquement dans le cadre d'études",
           "Disponible hors europe",
           "Autorisation mise sur le marché Européenne",
-          "Autorisation mise sur le marché en France",
           "Autre cadre de disponibilité réglementaire",
           "Inconnue"
         ],
@@ -306,7 +310,8 @@
         "enum": [
           "PCR",
           "Sérologie classique",
-          "TROD"
+          "Test rapide",
+          "Autotest"
         ],
         "title": "Type de test",
         "type": "string"
@@ -369,8 +374,8 @@
           }
         }
       },
-      "IndicationTest": {
-        "title": "Indication du test",
+      "UsageTest": {
+        "title": "Usage du test",
         "type": "string",
         "enum": [
           "Diagnostic pour prise en charge individuelle",
