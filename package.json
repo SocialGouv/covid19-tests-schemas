@@ -15,7 +15,7 @@
     "semantic-release": "^17.0.4"
   },
   "dependencies": {},
-  "redocOptions": "--options.hideDownloadButton --options.expandResponses=all --options.expandSingleSchemaField --options.hideHostname --options.expandDefaultServerVariables",
+  "redocOptions": "--options.hideDownloadButton --options.expandResponses=all --options.expandSingleSchemaField --options.hideHostname --options.expandDefaultServerVariables --options.jsonSampleExpandLevel=5",
   "scripts": {
     "yaml2json": "node ./scripts/yaml2json > openapi3.json",
     "start": "redoc-cli serve ./openapi3.yaml -p 3003 $npm_package_redocOptions",

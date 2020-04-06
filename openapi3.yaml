@@ -59,11 +59,8 @@ components:
           "$ref": "#/components/schemas/Pays"
         dateMiseSurLeMarche:
           "$ref": "#/components/schemas/DateMiseSurMarche"
-        distributeursFrance:
-          title: Distributeurs en France
-          type: array
-          items:
-            "$ref": "#/components/schemas/Distributeur"
+        distributeurFrance:
+          "$ref": "#/components/schemas/Distributeur"
         disponibilitesReglementaires: # choix multiple ?
           title: Disponibilités réglementaire
           type: array
@@ -228,6 +225,8 @@ components:
       title: Disponibilité réglementaire
       type: string
     Distributeur:
+      title: Distributeur en France
+      type: object
       properties:
           nom:
             title: Nom du distributeur
@@ -311,11 +310,11 @@ components:
           type: string
           format: date-time
     DisponibiliteInternationale:
-      title: Capacité de production
+      title: Capacité de production par semaine
       type: object
       properties:
         count:
-          title: Nombre de tests disponibles au niveau internationnal
+          title: Nombre de tests disponibles par semaine
           type: integer
         modalites:
           title: Modalités d'acheminement
