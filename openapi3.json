@@ -63,6 +63,12 @@
       },
       "Test": {
         "type": "object",
+        "required": [
+          "nom",
+          "statut",
+          "disponibiliteReglementaire",
+          "technologie"
+        ],
         "properties": {
           "nom": {
             "title": "Nom du test",
@@ -81,20 +87,18 @@
             "title": "Pays de production",
             "$ref": "#/components/schemas/Pays"
           },
+          "statut": {
+            "title": "Statut du test",
+            "$ref": "#/components/schemas/Statut"
+          },
           "dateMiseSurLeMarche": {
             "$ref": "#/components/schemas/DateMiseSurMarche"
           },
           "distributeurFrance": {
             "$ref": "#/components/schemas/Distributeur"
           },
-          "disponibilitesReglementaires": {
-            "title": "Disponibilités réglementaire",
-            "type": "array",
-            "minLength": 0,
-            "maxLength": 5,
-            "items": {
-              "$ref": "#/components/schemas/DisponibiliteReglementaire"
-            }
+          "disponibiliteReglementaire": {
+            "$ref": "#/components/schemas/DisponibiliteReglementaire"
           },
           "normes": {
             "type": "array",
@@ -135,7 +139,10 @@
             "type": "string"
           },
           "modalitesAcheminementPrelevements": {
-            "$ref": "#/components/schemas/ModalitesAcheminementPrelevement"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModaliteAcheminementPrelevement"
+            }
           },
           "typeStructureCapable": {
             "title": "Type de structures en mesure de faire le test",
@@ -257,6 +264,12 @@
           "commentaires": {
             "title": "Commentaires",
             "type": "string"
+          },
+          "documents": {
+            "title": "Fiche produits et documents",
+            "items": {
+              "$ref": "#/components/schemas/File"
+            }
           }
         }
       },
@@ -275,7 +288,7 @@
       "DisponibiliteReglementaire": {
         "enum": [
           "Non disponible",
-          "Disponible  en France uniquement dans le cadre d'études",
+          "Disponible en France uniquement dans le cadre d'études",
           "Disponible hors europe",
           "Autorisation mise sur le marché Européenne",
           "Autre cadre de disponibilité réglementaire",
@@ -351,8 +364,8 @@
         ],
         "type": "string"
       },
-      "ModalitesAcheminementPrelevement": {
-        "title": "Modalités d'acheminement des prélèvements",
+      "ModaliteAcheminementPrelevement": {
+        "title": "Modalité d'acheminement des prélèvements",
         "enum": [
           "Emballage simple",
           "Triple emballage",
@@ -442,6 +455,19 @@
           "Pharmacies",
           "Autre"
         ]
+      },
+      "Statut": {
+        "type": "string",
+        "enum": [
+          "Non validé",
+          "En cours d’évaluation",
+          "Validé",
+          "Inconnu"
+        ]
+      },
+      "File": {
+        "type": "string",
+        "format": "binary"
       }
     }
   }
