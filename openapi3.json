@@ -231,6 +231,7 @@
           },
           "documents": {
             "title": "Fiche produits et documents",
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/File"
             }
