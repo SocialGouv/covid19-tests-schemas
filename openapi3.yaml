@@ -46,7 +46,6 @@ components:
       required:
         - nom
         - statut
-        - disponibiliteReglementaire
         - technologie
       properties:
         nom:
@@ -65,26 +64,22 @@ components:
         statut:
           title: Statut du test
           "$ref": "#/components/schemas/Statut"
-        dateMiseSurLeMarche:
-          "$ref": "#/components/schemas/DateMiseSurMarche"
         distributeurFrance:
           "$ref": "#/components/schemas/Distributeur"
-        disponibiliteReglementaire:
-          "$ref": "#/components/schemas/DisponibiliteReglementaire"
         normes:
           type: array
           items:
             "$ref": "#/components/schemas/Norme"
-        referencesValidation:
-          title: Références bibliographiques pour la validation du test
-          type: string
-        referencesPostValidation:
-          title: Références bibliographiques POST validation du test
-          type: string
-        typeTest:
-          "$ref": "#/components/schemas/TypeTest"
+        natureProduit:
+          "$ref": "#/components/schemas/NatureProduit"
         technologie:
           "$ref": "#/components/schemas/TechnologieTest"
+        typeReactif:
+          "$ref": "#/components/schemas/TypeReactif"
+        typeCible:
+          "$ref": "#/components/schemas/TypeCible"
+        nombresCibles:
+          "$ref": "#/components/schemas/NombreCibles"
         machinesNecessaires:
           title: Machines nécessaires
           type: string
@@ -96,10 +91,6 @@ components:
           type: string
         typePrelevement:
           "$ref": "#/components/schemas/TypePrelevement"
-        consommablesNecessaires:
-          # liste de choix ? multiple ?
-          title: Consommables nécessaires au test
-          type: string
         modalitesAcheminementPrelevements:
           type: array
           items:
@@ -125,25 +116,9 @@ components:
           type: integer
           minimum: 0
           maximum: 100000
-        facteursLimitantsDisponibilite:
-          # champ texte ? pas de choix ?
-          title: Facteurs limitants d'une disponibilité de masse
-          type: string
         vitesseAnalyse:
           title: Vitesse d'analyse en minutes
           type: integer
-        periodePositiviteDateContamination:
-          # champ texte ?
-          title: Période de positivité du test par rapport à la date probable de contamination (mettre NC si non connue)
-          type: string
-        periodePositiviteDateJ1SignesCliniques:
-          # champ texte ?
-          title: Période de positivité du test par rapport au J1 des signes cliniques (mettre NC si non connue)
-          type: string
-        sensibleSecretionOuLocalisation:
-          title: Test sensible à la sécretion virale intermittente ou de localisation variée
-          type: boolean
-          nullable: true
         valeurPredictivePositive:
           # type de donnée ?
           title: Valeur Prédictive positive
@@ -187,18 +162,11 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/StrategieCanauxDistribution"
-        tauxPriseEnChargeSSPrevu:
-          title: Taux de Prise en charge SS prévu.
-          type: number
-        nombreDeTestsDepuisDebutEpidemie:
-          title: Nombre de tests réalisés depuis le début de l'épidémie COVID 19
-          type: integer
+        statutRemboursement:
+          title: Statut du remboursement
+          "$ref": "#/components/schemas/StatutRemboursement"
         signalementsReactovigilance:
           title: Signalements de réactovigilance
-          type: string
-        autresInterets:
-          title: Autres intérêts du test
-          example: dépistage de dg différentiels ou associés si puces multiplex
           type: string
         pointsContact:
           title: Points de contact
@@ -217,21 +185,6 @@ components:
       example: FR
       title: Pays
       type: string
-    DateMiseSurMarche:
-      example: "2019-12-25"
-      title: Date de mise sur le marché
-      type: string
-      format: date-time
-    DisponibiliteReglementaire:
-      enum:
-        - Non disponible
-        - Disponible en France uniquement dans le cadre d'études
-        - Disponible hors europe
-        - Autorisation mise sur le marché Européenne
-        - Autre cadre de disponibilité réglementaire
-        - Inconnue
-      title: Disponibilité réglementaire
-      type: string
     Distributeur:
       title: Distributeur en France
       type: object
@@ -245,26 +198,44 @@ components:
     Norme:
       enum:
         - CE
+        - International
         - Validation CNR
         - Validation ANSM
         - Inconnue
       title: Norme / Marquage
       type: string
-    TypeTest:
+    NatureProduit:
       enum:
-        - Qualitatif
-        - Quantitatif
-      title: Type de test
+        - Réactif
+        - Autre dispositif
+      title: Nature du produit
       type: string
     TechnologieTest:
       enum:
-        - Autotest
-        - PCR
-        - Sérologie classique
-        - Test antigénique
+        - RT-PCR
         - Test rapide
+        - Elisa
+        - Autotest
       title: Technologie de test
       type: string
+    TypeReactif:
+      enum:
+        - Amplification
+        - Extraction
+      title: Type de réactif
+      type: string
+    TypeCible:
+      enum:
+        - Anticorps
+        - Antigènes
+      title: Type de cible
+      type: string
+    NombreCibles:
+      enum:
+        - 1
+        - 2
+      title: Nombre de cibles
+      type: integer
     OuvertureTest:
       title: Test ouvert / fermé
       enum:
@@ -363,6 +334,11 @@ components:
         - En cours d’évaluation
         - Validé
         - Inconnu
+    StatutRemboursement:
+      type: string
+      enum:
+        - Remboursé
+        - Non remboursé
     File:
       type: string
       format: binary
