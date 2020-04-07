@@ -299,6 +299,7 @@ components:
       items:
         "$ref": "#/components/schemas/DisponibiliteNationaleDate"
     DisponibiliteNationaleDate:
+      type: object
       properties:
         count:
           title: Nombre de tests disponibles au niveau national
