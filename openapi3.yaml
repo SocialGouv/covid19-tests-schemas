@@ -43,6 +43,11 @@ components:
     # Schema d'un test
     Test:
       type: object
+      required:
+        - nom
+        - statut
+        - disponibiliteReglementaire
+        - technologie
       properties:
         nom:
           title: Nom du test
