@@ -92,6 +92,7 @@ components:
         typePrelevement:
           "$ref": "#/components/schemas/TypePrelevement"
         modalitesAcheminementPrelevements:
+          title: Modalités d'acheminement des prélèvements
           type: array
           items:
             "$ref": "#/components/schemas/ModaliteAcheminementPrelevement"
