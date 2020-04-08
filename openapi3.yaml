@@ -131,13 +131,11 @@ components:
           title: Valeur Prédictive négative
           type: integer
         sensibilite:
-          # type de donnée ?
           title: Sensibilité
-          type: integer
+          type: string
         specificite:
-          # type de donnée ?
           title: Spécificité
-          type: integer
+          type: string
         facteursDeVariation:
           # choix multiple ?
           title: Facteurs faisant varier VPP/VPN/Se/Sp
