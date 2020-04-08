@@ -95,6 +95,7 @@
           },
           "normes": {
             "type": "array",
+            "uniqueItems": true,
             "items": {
               "$ref": "#/components/schemas/Norme"
             }
@@ -130,6 +131,7 @@
           },
           "modalitesAcheminementPrelevements": {
             "title": "Modalités d'acheminement des prélèvements",
+            "uniqueItems": true,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ModaliteAcheminementPrelevement"
@@ -181,6 +183,7 @@
           },
           "facteursDeVariation": {
             "title": "Facteurs faisant varier VPP/VPN/Se/Sp",
+            "uniqueItems": true,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FacteurDeVariation"
@@ -203,6 +206,7 @@
           },
           "usagesTest": {
             "title": "Usages du test",
+            "uniqueItems": true,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UsageTest"
@@ -210,6 +214,7 @@
           },
           "strategiesCanauxDistribution": {
             "title": "Stratégies de canaux de distribution des tests",
+            "uniqueItems": true,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/StrategieCanauxDistribution"
