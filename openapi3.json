@@ -175,11 +175,11 @@
           },
           "sensibilite": {
             "title": "Sensibilité",
-            "type": "integer"
+            "type": "string"
           },
           "specificite": {
             "title": "Spécificité",
-            "type": "integer"
+            "type": "string"
           },
           "facteursDeVariation": {
             "title": "Facteurs faisant varier VPP/VPN/Se/Sp",
