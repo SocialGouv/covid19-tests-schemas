@@ -68,6 +68,7 @@ components:
           "$ref": "#/components/schemas/Distributeur"
         normes:
           type: array
+          uniqueItems: true
           items:
             "$ref": "#/components/schemas/Norme"
         natureProduit:
@@ -93,6 +94,7 @@ components:
           "$ref": "#/components/schemas/TypePrelevement"
         modalitesAcheminementPrelevements:
           title: Modalités d'acheminement des prélèvements
+          uniqueItems: true
           type: array
           items:
             "$ref": "#/components/schemas/ModaliteAcheminementPrelevement"
@@ -139,6 +141,7 @@ components:
         facteursDeVariation:
           # choix multiple ?
           title: Facteurs faisant varier VPP/VPN/Se/Sp
+          uniqueItems: true
           type: array
           items:
             "$ref": "#/components/schemas/FacteurDeVariation"
@@ -154,13 +157,14 @@ components:
           title: Capacité de production par semaine
           type: integer
         usagesTest:
-          # choix multiple ?
           title: Usages du test
+          uniqueItems: true
           type: array
           items:
             "$ref": "#/components/schemas/UsageTest"
         strategiesCanauxDistribution:
           title: Stratégies de canaux de distribution des tests
+          uniqueItems: true
           type: array
           items:
             "$ref": "#/components/schemas/StrategieCanauxDistribution"
