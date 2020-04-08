@@ -196,8 +196,9 @@
           "disponibiliteNationale": {
             "$ref": "#/components/schemas/DisponibiliteNationale"
           },
-          "disponibiliteInternationale": {
-            "$ref": "#/components/schemas/DisponibiliteInternationale"
+          "capaciteProductionHebdomadaire": {
+            "title": "Capacité de production par semaine",
+            "type": "integer"
           },
           "usagesTest": {
             "title": "Usages du test",
@@ -369,33 +370,6 @@
           "count": {
             "title": "Nombre de tests disponibles au niveau national",
             "type": "integer"
-          },
-          "date": {
-            "example": "2019-12-25",
-            "title": "Date de la donnée",
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "DisponibiliteInternationale": {
-        "title": "Capacité de production par semaine",
-        "type": "object",
-        "properties": {
-          "count": {
-            "title": "Nombre de tests disponibles par semaine",
-            "type": "integer"
-          },
-          "modalites": {
-            "title": "Modalités d'acheminement",
-            "type": "string"
-          },
-          "delais": {
-            "title": "Delais disponibles pour la livraison",
-            "type": "string"
-          },
-          "pays": {
-            "$ref": "#/components/schemas/Pays"
           },
           "date": {
             "example": "2019-12-25",
