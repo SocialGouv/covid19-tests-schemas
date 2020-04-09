@@ -64,9 +64,10 @@ components:
         statut:
           title: Statut du test
           "$ref": "#/components/schemas/Statut"
-        distributeurFrance:
+        distributeur:
           "$ref": "#/components/schemas/Distributeur"
         normes:
+          title: Type de validation
           type: array
           uniqueItems: true
           items:
@@ -82,7 +83,7 @@ components:
         nombresCibles:
           "$ref": "#/components/schemas/NombreCibles"
         machinesNecessaires:
-          title: Machines nécessaires
+          title: Automates nécessaires
           type: string
         ouvertureTest:
           "$ref": "#/components/schemas/OuvertureTest"
@@ -119,9 +120,6 @@ components:
           type: integer
           minimum: 0
           maximum: 100000
-        vitesseAnalyse:
-          title: Vitesse d'analyse en minutes
-          type: integer
         valeurPredictivePositive:
           # type de donnée ?
           title: Valeur Prédictive positive
@@ -153,7 +151,7 @@ components:
           "$ref": "#/components/schemas/DisponibiliteNationale"
         capaciteProductionHebdomadaire:
           title: Capacité de production par semaine
-          type: integer
+          type: string
         usagesTest:
           title: Usages du test
           uniqueItems: true
@@ -191,7 +189,7 @@ components:
       title: Pays
       type: string
     Distributeur:
-      title: Distributeur en France
+      title: Distributeur
       type: object
       properties:
           nom:
@@ -239,6 +237,7 @@ components:
       enum:
         - 1
         - 2
+        - > 2
       title: Nombre de cibles
       type: integer
     OuvertureTest:
@@ -254,7 +253,7 @@ components:
         - Sérum
         - Plasma
         - Sang
-        - Micro-gouttes capillaires
+        - Capillaire
         - Naso-pharyngé
         - Salive
         - Selles
@@ -279,7 +278,7 @@ components:
         - Immunité croisée
         - Autre
     DisponibiliteNationale:
-      title: Nombre de tests disponibles au niveau national par mois
+      title: Capacité de livraison par mois
       type: array
       items:
         "$ref": "#/components/schemas/DisponibiliteNationaleDate"
@@ -287,7 +286,7 @@ components:
       type: object
       properties:
         count:
-          title: Nombre de tests disponibles au niveau national
+          title: Capacité de livraison au niveau national
           type: integer
         date:
           example: "2019-12-25"
