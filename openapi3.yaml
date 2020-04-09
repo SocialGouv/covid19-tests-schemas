@@ -237,7 +237,7 @@ components:
       enum:
         - 1
         - 2
-        - > 2
+        - "> 2"
       title: Nombre de cibles
       type: integer
     OuvertureTest:
