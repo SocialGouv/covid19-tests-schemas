@@ -90,10 +90,11 @@
             "title": "Statut du test",
             "$ref": "#/components/schemas/Statut"
           },
-          "distributeurFrance": {
+          "distributeur": {
             "$ref": "#/components/schemas/Distributeur"
           },
           "normes": {
+            "title": "Type de validation",
             "type": "array",
             "uniqueItems": true,
             "items": {
@@ -116,7 +117,7 @@
             "$ref": "#/components/schemas/NombreCibles"
           },
           "machinesNecessaires": {
-            "title": "Machines nécessaires",
+            "title": "Automates nécessaires",
             "type": "string"
           },
           "ouvertureTest": {
@@ -161,10 +162,6 @@
             "minimum": 0,
             "maximum": 100000
           },
-          "vitesseAnalyse": {
-            "title": "Vitesse d'analyse en minutes",
-            "type": "integer"
-          },
           "valeurPredictivePositive": {
             "title": "Valeur Prédictive positive",
             "type": "integer"
@@ -202,7 +199,7 @@
           },
           "capaciteProductionHebdomadaire": {
             "title": "Capacité de production par semaine",
-            "type": "integer"
+            "type": "string"
           },
           "usagesTest": {
             "title": "Usages du test",
@@ -252,7 +249,7 @@
         "type": "string"
       },
       "Distributeur": {
-        "title": "Distributeur en France",
+        "title": "Distributeur",
         "type": "object",
         "properties": {
           "nom": {
@@ -313,7 +310,8 @@
       "NombreCibles": {
         "enum": [
           1,
-          2
+          2,
+          "> 2"
         ],
         "title": "Nombre de cibles",
         "type": "integer"
@@ -333,7 +331,7 @@
           "Sérum",
           "Plasma",
           "Sang",
-          "Micro-gouttes capillaires",
+          "Capillaire",
           "Naso-pharyngé",
           "Salive",
           "Selles",
@@ -364,7 +362,7 @@
         ]
       },
       "DisponibiliteNationale": {
-        "title": "Nombre de tests disponibles au niveau national par mois",
+        "title": "Capacité de livraison par mois",
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/DisponibiliteNationaleDate"
@@ -374,7 +372,7 @@
         "type": "object",
         "properties": {
           "count": {
-            "title": "Nombre de tests disponibles au niveau national",
+            "title": "Capacité de livraison au niveau national",
             "type": "integer"
           },
           "date": {
