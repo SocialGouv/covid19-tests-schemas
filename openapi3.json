@@ -77,6 +77,11 @@
             "title": "Nom du test",
             "type": "string"
           },
+          "public": {
+            "title": "Publier",
+            "type": "boolean",
+            "default": false
+          },
           "producteur": {
             "title": "Fabricant",
             "type": "string",
