@@ -270,8 +270,8 @@
         "enum": [
           "CE",
           "International",
-          "Validation CNR",
-          "Validation ANSM",
+          "CNR",
+          "ANSM",
           "Inconnue"
         ],
         "title": "Norme / Marquage",
