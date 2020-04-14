@@ -197,6 +197,10 @@
               "$ref": "#/components/schemas/FacteurDeVariation"
             }
           },
+          "limiteDetection": {
+            "title": "Limite de détection",
+            "type": "string"
+          },
           "fourchettePrixBasse": {
             "title": "Fourchette de prix basse du test (par test)",
             "type": "integer"
