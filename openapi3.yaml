@@ -55,7 +55,7 @@ components:
           title: Nom du test
           type: string
         public:
-          title: Publier
+          title: Rendre le test public
           type: boolean
           default: false
         producteur:
