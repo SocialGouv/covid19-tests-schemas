@@ -298,11 +298,10 @@ components:
         count:
           title: Capacité de livraison au niveau national
           type: integer
-        date:
-          example: "2019-12-25"
-          title: Date de la donnée
+        mois:
+          example: "Juin"
+          title: Mois
           type: string
-          format: date-time
     UsageTest:
       title: Usage du test
       type: string
