@@ -155,7 +155,7 @@ components:
           title: Fourchette de prix basse du test (par test)
           type: integer
         fourchettePrixHaute:
-          title: Fourchette de prix basse du test (par test)
+          title: Fourchette de prix haute du test (par test)
           type: integer
         disponibiliteNationale:
           "$ref": "#/components/schemas/DisponibiliteNationale"
