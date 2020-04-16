@@ -99,7 +99,11 @@ components:
           title: Courbe type de cinétique de positivité du test
           type: string
         typePrelevement:
-          "$ref": "#/components/schemas/TypePrelevement"
+          title: Type de prélèvement nécessaire au test
+          uniqueItems: true
+          type: array
+          items:
+            "$ref": "#/components/schemas/TypePrelevement"
         modalitesAcheminementPrelevements:
           title: Modalités d'acheminement des prélèvements
           uniqueItems: true
