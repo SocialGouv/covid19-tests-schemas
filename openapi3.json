@@ -398,22 +398,22 @@
           "mois": {
             "example": "Juin",
             "title": "Mois",
-            "type": "string"
-          },
-          "enum": [
-            "Janvier",
-            "Février",
-            "Mars",
-            "Avril",
-            "Mai",
-            "Juin",
-            "Juillet",
-            "Août",
-            "Septembre",
-            "Octobre",
-            "Novembre",
-            "Décembre"
-          ]
+            "type": "string",
+            "enum": [
+              "Janvier",
+              "Février",
+              "Mars",
+              "Avril",
+              "Mai",
+              "Juin",
+              "Juillet",
+              "Août",
+              "Septembre",
+              "Octobre",
+              "Novembre",
+              "Décembre"
+            ]
+          }
         }
       },
       "UsageTest": {
