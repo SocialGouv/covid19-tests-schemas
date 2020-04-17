@@ -179,19 +179,19 @@
             "type": "integer"
           },
           "sensibilite": {
-            "title": "Sensibilité déclarée par le fabricant",
+            "title": "Sensibilité clinique déclarée par le fabricant",
             "type": "string"
           },
           "sensibiliteCNR": {
-            "title": "Sensibilité évaluée par le CNR",
+            "title": "Sensibilité clinique évaluée par le CNR",
             "type": "string"
           },
           "specificite": {
-            "title": "Spécificité déclarée par le fabricant",
+            "title": "Spécificité clinique déclarée par le fabricant",
             "type": "string"
           },
           "specificiteCNR": {
-            "title": "Spécificité évaluée par le CNR",
+            "title": "Spécificité clinique évaluée par le CNR",
             "type": "string"
           },
           "facteursDeVariation": {
