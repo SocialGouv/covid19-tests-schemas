@@ -306,6 +306,19 @@ components:
           example: "Juin"
           title: Mois
           type: string
+        enum:
+          - Janvier
+          - Février
+          - Mars
+          - Avril
+          - Mai
+          - Juin
+          - Juillet
+          - Août
+          - Septembre
+          - Octobre
+          - Novembre
+          - Décembre
     UsageTest:
       title: Usage du test
       type: string
