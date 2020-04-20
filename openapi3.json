@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Schema de définition des tests au COVID-19",
+    "title": "Schema de définition des tests COVID-19",
     "description": "Detail du schéma de données test COVID-19",
     "contact": {
       "name": "Fabrique des Ministères sociaux",
