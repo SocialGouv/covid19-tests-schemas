@@ -74,11 +74,7 @@ components:
         distributeur:
           "$ref": "#/components/schemas/Distributeur"
         normes:
-          title: Type de validation
-          type: array
-          uniqueItems: true
-          items:
-            "$ref": "#/components/schemas/Norme"
+          "$ref": "#/components/schemas/Normes"
         natureProduit:
           "$ref": "#/components/schemas/NatureProduit"
         technologie:
@@ -197,6 +193,21 @@ components:
             "$ref": "#/components/schemas/File"
 
     # Champs utilisés
+    ValidationStatusCNR:
+      title: Status
+      type: string
+      enum:
+        - Validé
+        - En cours d’évaluation
+        - En cours d’expédition
+        - Non initié
+        - Refusé
+    ValidationStatus:
+      title: Status
+      type: string
+      enum:
+        - Validé
+        - Non validé
     Pays:
       description: Pays à la norme ISO3361-alpha2
       example: FR
@@ -212,15 +223,25 @@ components:
           nationalite:
             title: Nationalité du distributeur
             "$ref": "#/components/schemas/Pays"
-    Norme:
-      enum:
-        - CE
-        - International
-        - CNR
-        - ANSM
-        - Inconnue
-      title: Norme / Marquage
-      type: string
+    Normes:
+      title: Type de validation
+      type: object
+      properties:
+        CE:
+          title: CE
+          "$ref": "#/components/schemas/ValidationStatus"
+        International:
+          title: International
+          "$ref": "#/components/schemas/ValidationStatus"
+        CNR:
+          title: CNR
+          "$ref": "#/components/schemas/ValidationStatusCNR"
+        ANSM:
+          title: ANSM
+          "$ref": "#/components/schemas/ValidationStatus"
+        Inconnue:
+          title: Inconnue
+          "$ref": "#/components/schemas/ValidationStatus"
     NatureProduit:
       enum:
         - Réactif
