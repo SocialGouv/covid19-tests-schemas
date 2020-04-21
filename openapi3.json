@@ -153,18 +153,6 @@
             "minimum": 0,
             "maximum": 1000000
           },
-          "nombreAnalysesPossiblesJour": {
-            "title": "Nombre d'analyses possibles au niveau national par jour (si le consommable n'est pas un facteur limitant). (Au jour de l'analyse)",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 100000
-          },
-          "nombreAnalysesPossiblesAvenirProche": {
-            "title": "Nombre d'analyses possibles au niveau national par jour (si le consommable n'est pas un facteur limitant). (dans un avenir proche (moins d'un mois)",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 100000
-          },
           "valeurPredictivePositive": {
             "title": "Valeur Prédictive positive",
             "type": "integer"
