@@ -237,7 +237,7 @@
             "type": "string"
           },
           "documents": {
-            "title": "Fiche produits et documents",
+            "title": "Fiche produits, notice et documents",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/File"
