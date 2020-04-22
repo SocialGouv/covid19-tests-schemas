@@ -130,13 +130,11 @@ components:
           minimum: 0
           maximum: 1000000
         valeurPredictivePositive:
-          # type de donnée ?
           title: Valeur Prédictive positive
-          type: number
+          type: string
         valeurPredictiveNegative:
-          # type de donnée ?
           title: Valeur Prédictive négative
-          type: number
+          type: string
         sensibilite:
           title: Sensibilité clinique déclarée par le fabricant
           type: string
