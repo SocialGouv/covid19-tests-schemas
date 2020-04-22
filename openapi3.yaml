@@ -169,7 +169,7 @@ components:
           "$ref": "#/components/schemas/DisponibiliteNationale"
         capaciteProductionHebdomadaire:
           title: Capacité de production par semaine
-          type: string
+          type: integer
         usagesTest:
           title: Usages du test
           uniqueItems: true
