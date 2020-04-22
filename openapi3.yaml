@@ -88,8 +88,6 @@ components:
           "$ref": "#/components/schemas/ValidationStatus"
         distributeur:
           "$ref": "#/components/schemas/Distributeur"
-        normes:
-          "$ref": "#/components/schemas/Normes"
         natureProduit:
           "$ref": "#/components/schemas/NatureProduit"
         technologie:
