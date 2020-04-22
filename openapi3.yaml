@@ -67,10 +67,25 @@ components:
             - AKAI
         paysProduction:
           title: Pays de production
-          "$ref": "#/components/schemas/Pays"
+          uniqueItems: true
+          type: array
+          items:
+            "$ref": "#/components/schemas/Pays"
         statut:
           title: Statut du test
-          "$ref": "#/components/schemas/Statut"
+          "$ref": "#/components/schemas/ValidationStatus"
+        validation_CE:
+          title: Statut validation CE
+          "$ref": "#/components/schemas/ValidationStatus"
+        validation_International:
+          title: Statut validation International
+          "$ref": "#/components/schemas/ValidationStatus"
+        validation_CNR:
+          title: Statut validation CNR
+          "$ref": "#/components/schemas/ValidationStatusCNR"
+        validation_ANSM:
+          title: Statut validation ANSM
+          "$ref": "#/components/schemas/ValidationStatus"
         distributeur:
           "$ref": "#/components/schemas/Distributeur"
         normes:
@@ -94,6 +109,11 @@ components:
           # type de donnée ?
           title: Courbe type de cinétique de positivité du test
           type: string
+        courbeCinetiquePositiveDocs:
+          title: "Documents relatifs à la courbe type de cinétique de positivité du test"
+          type: array
+          items:
+            "$ref": "#/components/schemas/File"
         typePrelevement:
           title: Type de prélèvement nécessaire au test
           uniqueItems: true
@@ -181,23 +201,6 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/File"
-
-    # Champs utilisés
-    ValidationStatusCNR:
-      title: Status
-      type: string
-      enum:
-        - Validé
-        - En cours d’évaluation
-        - En cours d’expédition
-        - Non initié
-        - Refusé
-    ValidationStatus:
-      title: Status
-      type: string
-      enum:
-        - Validé
-        - Non validé
     Pays:
       description: Pays à la norme ISO3361-alpha2
       example: FR
@@ -213,25 +216,6 @@ components:
           nationalite:
             title: Nationalité du distributeur
             "$ref": "#/components/schemas/Pays"
-    Normes:
-      title: Type de validation
-      type: object
-      properties:
-        CE:
-          title: CE
-          "$ref": "#/components/schemas/ValidationStatus"
-        International:
-          title: International
-          "$ref": "#/components/schemas/ValidationStatus"
-        CNR:
-          title: CNR
-          "$ref": "#/components/schemas/ValidationStatusCNR"
-        ANSM:
-          title: ANSM
-          "$ref": "#/components/schemas/ValidationStatus"
-        Inconnue:
-          title: Inconnue
-          "$ref": "#/components/schemas/ValidationStatus"
     NatureProduit:
       enum:
         - Réactif
@@ -255,7 +239,7 @@ components:
     TypeCible:
       enum:
         - Anticorps
-        - ARN Viral
+        - ARN Viral / Antigènes
       title: Type de cible
       type: string
     NombreCibles:
@@ -348,12 +332,21 @@ components:
         - Laboratoires de ville
         - Pharmacies
         - Autre
-    Statut:
+    ValidationStatus:
       type: string
       enum:
-        - Non validé
-        - En cours d’évaluation
+        - Écarté
+        - A l’étude
         - Validé
+        - Inconnu
+    ValidationStatusCNR:
+      type: string
+      enum:
+        - Validé
+        - En cours d’évaluation
+        - En cours d’expédition
+        - Non initié
+        - Refusé
         - Inconnu
     StatutRemboursement:
       type: string
