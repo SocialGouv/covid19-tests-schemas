@@ -96,7 +96,7 @@ components:
           "$ref": "#/components/schemas/TypeReactif"
         typeCible:
           "$ref": "#/components/schemas/TypeCible"
-        nombresCibles:
+        nombreCibles:
           "$ref": "#/components/schemas/NombreCibles"
         machinesNecessaires:
           title: Automates compatibles
