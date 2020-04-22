@@ -132,11 +132,11 @@ components:
         valeurPredictivePositive:
           # type de donnée ?
           title: Valeur Prédictive positive
-          type: integer
+          type: number
         valeurPredictiveNegative:
           # type de donnée ?
           title: Valeur Prédictive négative
-          type: integer
+          type: number
         sensibilite:
           title: Sensibilité clinique déclarée par le fabricant
           type: string
