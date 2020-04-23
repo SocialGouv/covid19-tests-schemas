@@ -92,18 +92,30 @@
             ]
           },
           "paysProduction": {
-            "title": "Pays de production",
-            "$ref": "#/components/schemas/Pays"
+            "$ref": "#/components/schemas/PaysProduction"
           },
           "statut": {
             "title": "Statut du test",
-            "$ref": "#/components/schemas/Statut"
+            "$ref": "#/components/schemas/ValidationStatus"
+          },
+          "validation_CE": {
+            "title": "Statut validation CE",
+            "$ref": "#/components/schemas/ValidationStatus"
+          },
+          "validation_International": {
+            "title": "Statut validation International",
+            "$ref": "#/components/schemas/ValidationStatus"
+          },
+          "validation_CNR": {
+            "title": "Statut validation CNR",
+            "$ref": "#/components/schemas/ValidationStatusCNR"
+          },
+          "validation_ANSM": {
+            "title": "Statut validation ANSM",
+            "$ref": "#/components/schemas/ValidationStatus"
           },
           "distributeur": {
             "$ref": "#/components/schemas/Distributeur"
-          },
-          "normes": {
-            "$ref": "#/components/schemas/Normes"
           },
           "natureProduit": {
             "$ref": "#/components/schemas/NatureProduit"
@@ -117,7 +129,7 @@
           "typeCible": {
             "$ref": "#/components/schemas/TypeCible"
           },
-          "nombresCibles": {
+          "nombreCibles": {
             "$ref": "#/components/schemas/NombreCibles"
           },
           "machinesNecessaires": {
@@ -130,6 +142,13 @@
           "courbeCinetiquePositive": {
             "title": "Courbe type de cinétique de positivité du test",
             "type": "string"
+          },
+          "courbeCinetiquePositiveDocs": {
+            "title": "Documents relatifs à la courbe type de cinétique de positivité du test",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/File"
+            }
           },
           "typePrelevement": {
             "title": "Type de prélèvement nécessaire au test",
@@ -155,11 +174,11 @@
           },
           "valeurPredictivePositive": {
             "title": "Valeur Prédictive positive",
-            "type": "integer"
+            "type": "string"
           },
           "valeurPredictiveNegative": {
             "title": "Valeur Prédictive négative",
-            "type": "integer"
+            "type": "string"
           },
           "sensibilite": {
             "title": "Sensibilité clinique déclarée par le fabricant",
@@ -202,7 +221,7 @@
           },
           "capaciteProductionHebdomadaire": {
             "title": "Capacité de production par semaine",
-            "type": "string"
+            "type": "integer"
           },
           "usagesTest": {
             "title": "Usages du test",
@@ -245,24 +264,29 @@
           }
         }
       },
-      "ValidationStatusCNR": {
-        "title": "Status",
-        "type": "string",
-        "enum": [
-          "Validé",
-          "En cours d’évaluation",
-          "En cours d’expédition",
-          "Non initié",
-          "Refusé"
-        ]
-      },
-      "ValidationStatus": {
-        "title": "Status",
-        "type": "string",
-        "enum": [
-          "Validé",
-          "Non validé"
-        ]
+      "PaysProduction": {
+        "title": "Pays de production",
+        "type": "object",
+        "properties": {
+          "pays1": {
+            "title": "Pays 1",
+            "items": {
+              "$ref": "#/components/schemas/Pays"
+            }
+          },
+          "pays2": {
+            "title": "Pays 2",
+            "items": {
+              "$ref": "#/components/schemas/Pays"
+            }
+          },
+          "pays3": {
+            "title": "Pays 3",
+            "items": {
+              "$ref": "#/components/schemas/Pays"
+            }
+          }
+        }
       },
       "Pays": {
         "description": "Pays à la norme ISO3361-alpha2",
@@ -281,32 +305,6 @@
           "nationalite": {
             "title": "Nationalité du distributeur",
             "$ref": "#/components/schemas/Pays"
-          }
-        }
-      },
-      "Normes": {
-        "title": "Type de validation",
-        "type": "object",
-        "properties": {
-          "CE": {
-            "title": "CE",
-            "$ref": "#/components/schemas/ValidationStatus"
-          },
-          "International": {
-            "title": "International",
-            "$ref": "#/components/schemas/ValidationStatus"
-          },
-          "CNR": {
-            "title": "CNR",
-            "$ref": "#/components/schemas/ValidationStatusCNR"
-          },
-          "ANSM": {
-            "title": "ANSM",
-            "$ref": "#/components/schemas/ValidationStatus"
-          },
-          "Inconnue": {
-            "title": "Inconnue",
-            "$ref": "#/components/schemas/ValidationStatus"
           }
         }
       },
@@ -339,7 +337,7 @@
       "TypeCible": {
         "enum": [
           "Anticorps",
-          "ARN Viral"
+          "ARN Viral / Antigènes"
         ],
         "title": "Type de cible",
         "type": "string"
@@ -351,7 +349,7 @@
           "> 2"
         ],
         "title": "Nombre de cibles",
-        "type": "integer"
+        "type": "string"
       },
       "OuvertureTest": {
         "title": "Test ouvert / fermé",
@@ -455,12 +453,23 @@
           "Autre"
         ]
       },
-      "Statut": {
+      "ValidationStatus": {
         "type": "string",
         "enum": [
-          "Non validé",
-          "En cours d’évaluation",
+          "Écarté",
+          "A l’étude",
           "Validé",
+          "Inconnu"
+        ]
+      },
+      "ValidationStatusCNR": {
+        "type": "string",
+        "enum": [
+          "Validé",
+          "En cours d’évaluation",
+          "En cours d’expédition",
+          "Non initié",
+          "Refusé",
           "Inconnu"
         ]
       },
