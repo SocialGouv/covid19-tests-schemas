@@ -66,11 +66,7 @@ components:
             - THOMSON
             - AKAI
         paysProduction:
-          title: Pays de production
-          uniqueItems: true
-          type: array
-          items:
-            "$ref": "#/components/schemas/Pays"
+          "$ref": "#/components/schemas/PaysProduction"
         statut:
           title: Statut du test
           "$ref": "#/components/schemas/ValidationStatus"
@@ -197,6 +193,22 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/File"
+    PaysProduction:
+      title: Pays de production
+      type: object
+      properties:
+        pays1:
+          title: Pays 1
+          items:
+            "$ref": "#/components/schemas/Pays"
+        pays2:
+          title: Pays 2
+          items:
+            "$ref": "#/components/schemas/Pays"
+        pays3:
+          title: Pays 3
+          items:
+            "$ref": "#/components/schemas/Pays"
     Pays:
       description: Pays à la norme ISO3361-alpha2
       example: FR
@@ -244,7 +256,7 @@ components:
         - 2
         - "> 2"
       title: Nombre de cibles
-      type: integer
+      type: string
     OuvertureTest:
       title: Test ouvert / fermé
       enum:
