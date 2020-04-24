@@ -96,7 +96,7 @@
           },
           "statut": {
             "title": "Statut du test",
-            "$ref": "#/components/schemas/ValidationStatus"
+            "$ref": "#/components/schemas/TestStatus"
           },
           "validation_CE": {
             "title": "Statut marquage CE",
@@ -456,7 +456,7 @@
           "Autre"
         ]
       },
-      "ValidationStatus": {
+      "TestStatus": {
         "type": "string",
         "enum": [
           "Écarté",
