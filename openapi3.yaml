@@ -69,9 +69,9 @@ components:
           "$ref": "#/components/schemas/PaysProduction"
         statut:
           title: Statut du test
-          "$ref": "#/components/schemas/ValidationStatus"
+          "$ref": "#/components/schemas/TestStatus"
         validation_CE:
-          title: Statut validation CE
+          title: Statut Marquage CE
           "$ref": "#/components/schemas/ValidationStatus"
         validation_International:
           title: Statut validation International
@@ -340,13 +340,17 @@ components:
         - Laboratoires de ville
         - Pharmacies
         - Autre
-    ValidationStatus:
+    TestStatus:
       type: string
       enum:
         - Écarté
         - A l’étude
         - Validé
-        - Inconnu
+    ValidationStatus:
+      type: string
+      enum:
+        - Oui
+        - Non
     ValidationStatusCNR:
       type: string
       enum:
