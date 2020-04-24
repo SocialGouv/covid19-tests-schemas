@@ -71,17 +71,20 @@ components:
           title: Statut du test
           "$ref": "#/components/schemas/ValidationStatus"
         validation_CE:
-          title: Statut validation CE
-          "$ref": "#/components/schemas/ValidationStatus"
+          title: Statut marquage CE
+          type: boolean
+          default: false
         validation_International:
           title: Statut validation International
-          "$ref": "#/components/schemas/ValidationStatus"
+          type: boolean
+          default: false
         validation_CNR:
           title: Statut validation CNR
           "$ref": "#/components/schemas/ValidationStatusCNR"
         validation_ANSM:
           title: Statut validation ANSM
-          "$ref": "#/components/schemas/ValidationStatus"
+          type: boolean
+          default: false
         distributeur:
           "$ref": "#/components/schemas/Distributeur"
         natureProduit:
@@ -346,7 +349,6 @@ components:
         - Écarté
         - A l’étude
         - Validé
-        - Inconnu
     ValidationStatusCNR:
       type: string
       enum:
