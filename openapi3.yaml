@@ -69,7 +69,7 @@ components:
           "$ref": "#/components/schemas/PaysProduction"
         statut:
           title: Statut du test
-          "$ref": "#/components/schemas/ValidationStatus"
+          "$ref": "#/components/schemas/TestStatus"
         validation_CE:
           title: Statut marquage CE
           type: boolean
@@ -343,7 +343,7 @@ components:
         - Laboratoires de ville
         - Pharmacies
         - Autre
-    ValidationStatus:
+    TestStatus:
       type: string
       enum:
         - Écarté
