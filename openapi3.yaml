@@ -54,10 +54,6 @@ components:
         nom:
           title: Nom du test
           type: string
-        public:
-          title: Rendre le test public
-          type: boolean
-          default: false
         producteur:
           title: Fabricant
           type: string
@@ -71,18 +67,18 @@ components:
           title: Statut du test
           "$ref": "#/components/schemas/TestStatus"
         validation_CE:
-          title: Statut marquage CE
+          title: Marquage CE
           type: boolean
           default: false
         validation_International:
-          title: Statut validation International
+          title: Validation International
           type: boolean
           default: false
         validation_CNR:
-          title: Statut validation CNR
+          title: Validation CNR
           "$ref": "#/components/schemas/ValidationStatusCNR"
         validation_ANSM:
-          title: Statut validation ANSM
+          title: Vérifié ANSM
           type: boolean
           default: false
         distributeur:
@@ -239,7 +235,7 @@ components:
         - Test rapide
         - Elisa
         - Autotest
-      title: Technologie de test
+      title: Type de test
       type: string
     TypeReactif:
       enum:
@@ -250,8 +246,9 @@ components:
     TypeCible:
       enum:
         - Anticorps
-        - ARN Viral / Antigènes
-      title: Type de cible
+        - ARN Viral
+        - Antigènes
+      title: Type de détection
       type: string
     NombreCibles:
       enum:
@@ -346,9 +343,8 @@ components:
     TestStatus:
       type: string
       enum:
-        - Écarté
-        - A l’étude
-        - Validé
+        - Public
+        - Non public
     ValidationStatusCNR:
       type: string
       enum:
