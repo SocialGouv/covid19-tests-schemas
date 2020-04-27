@@ -104,7 +104,7 @@
             "default": false
           },
           "validation_CNR": {
-            "title": "Validation CNR",
+            "title": "Évaluation CNR",
             "$ref": "#/components/schemas/ValidationStatusCNR"
           },
           "validation_ANSM": {
@@ -462,11 +462,11 @@
       "ValidationStatusCNR": {
         "type": "string",
         "enum": [
-          "Validé",
+          "Avis favorable",
           "En cours d’évaluation",
           "En cours d’expédition",
           "Non initié",
-          "Refusé",
+          "Avis défavorable",
           "Inconnu"
         ]
       },
