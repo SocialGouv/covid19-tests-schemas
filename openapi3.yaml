@@ -235,6 +235,7 @@ components:
         - Test rapide
         - Elisa
         - Autotest
+        - LAMP
       title: Type de test
       type: string
     TypeReactif:
