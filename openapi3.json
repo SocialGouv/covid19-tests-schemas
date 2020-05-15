@@ -319,7 +319,8 @@
           "RT-PCR",
           "Test rapide",
           "Elisa",
-          "Autotest"
+          "Autotest",
+          "LAMP"
         ],
         "title": "Type de test",
         "type": "string"
