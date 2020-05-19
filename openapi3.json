@@ -322,7 +322,7 @@
         "enum": [
           "RT-PCR",
           "Test rapide",
-          "Elisa",
+          "Sérologie automatisée",
           "Autotest",
           "LAMP"
         ],
