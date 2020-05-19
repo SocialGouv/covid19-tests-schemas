@@ -250,7 +250,11 @@
             "type": "string"
           },
           "commentaires": {
-            "title": "Commentaires",
+            "title": "Commentaires internes",
+            "type": "string"
+          },
+          "commentairesPublics": {
+            "title": "Commentaires publics",
             "type": "string"
           },
           "documents": {
