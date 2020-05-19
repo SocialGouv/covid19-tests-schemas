@@ -185,7 +185,10 @@ components:
           title: Points de contact
           type: string
         commentaires:
-          title: Commentaires
+          title: Commentaires internes
+          type: string
+        commentairesPublics:
+          title: Commentaires publics
           type: string
         documents:
           title: "Fiche produits, notice et documents"
