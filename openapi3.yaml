@@ -239,7 +239,7 @@ components:
       properties:
         sensibilite:
           title: Sensibilité
-          type: string
+          type: integer
         specificite:
           title: Specificité (%)
           type: integer
