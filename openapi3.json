@@ -245,6 +245,29 @@
             "title": "Signalements de réactovigilance",
             "type": "string"
           },
+          "performancesSerologieCNR": {
+            "$ref": "#/components/schemas/PerformancesSerologieCNR"
+          },
+          "performancesSerologieIgM": {
+            "title": "IgM J7",
+            "$ref": "#/components/schemas/PerformancesSerologieTest"
+          },
+          "performancesSerologieIgG": {
+            "title": "IgG J14",
+            "$ref": "#/components/schemas/PerformancesSerologieTest"
+          },
+          "performancesSerologieIgTotal": {
+            "title": "Ig Total J14",
+            "$ref": "#/components/schemas/PerformancesSerologieTest"
+          },
+          "performancesSerologieHAS": {
+            "title": "Validation HAS si sensibilité > 90% et spécificité > 98%",
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PerformancesSerologieHAS"
+            }
+          },
           "pointsContact": {
             "title": "Points de contact",
             "type": "string"
@@ -296,6 +319,28 @@
         "title": "Pays",
         "type": "string"
       },
+      "PerformancesSerologieTest": {
+        "title": "PerformancesSerologieTest",
+        "type": "object",
+        "properties": {
+          "sensibilite": {
+            "title": "Sensibilité",
+            "type": "string"
+          },
+          "specificite": {
+            "title": "Specificité (%)",
+            "type": "integer"
+          },
+          "ecartDeConfiance": {
+            "title": "Ecart de confiance",
+            "type": "integer"
+          },
+          "nombreEchantillons": {
+            "title": "Nombre d'échantillons",
+            "type": "integer"
+          }
+        }
+      },
       "Distributeur": {
         "title": "Distributeur",
         "type": "object",
@@ -309,6 +354,23 @@
             "$ref": "#/components/schemas/Pays"
           }
         }
+      },
+      "PerformancesSerologieCNR": {
+        "title": "CNR",
+        "type": "string",
+        "enum": [
+          "Paris",
+          "Lyon"
+        ]
+      },
+      "PerformancesSerologieHAS": {
+        "title": "Validation HAS si sensibilité > 90% et spécificité > 98%",
+        "type": "string",
+        "enum": [
+          "IgM J7",
+          "IgG J14",
+          "Ig total J14"
+        ]
       },
       "NatureProduit": {
         "enum": [
