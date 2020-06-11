@@ -325,7 +325,7 @@
         "properties": {
           "sensibilite": {
             "title": "Sensibilité",
-            "type": "string"
+            "type": "integer"
           },
           "specificite": {
             "title": "Specificité (%)",
