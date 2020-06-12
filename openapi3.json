@@ -249,15 +249,15 @@
             "$ref": "#/components/schemas/PerformancesSerologieCNR"
           },
           "performancesSerologieIgM": {
-            "title": "IgM J7",
+            "title": "Ig M (J7)",
             "$ref": "#/components/schemas/PerformancesSerologieTest"
           },
           "performancesSerologieIgG": {
-            "title": "IgG J14",
+            "title": "Ig G (J14)",
             "$ref": "#/components/schemas/PerformancesSerologieTest"
           },
           "performancesSerologieIgTotal": {
-            "title": "Ig Total J14",
+            "title": "Ig Totales",
             "$ref": "#/components/schemas/PerformancesSerologieTest"
           },
           "performancesSerologieHAS": {
@@ -324,7 +324,7 @@
         "type": "object",
         "properties": {
           "sensibilite": {
-            "title": "Sensibilité",
+            "title": "Sensibilité cumulée",
             "type": "integer"
           },
           "specificite": {
@@ -332,11 +332,11 @@
             "type": "integer"
           },
           "ecartDeConfiance": {
-            "title": "Ecart de confiance",
+            "title": "Intervalle de confiance",
             "type": "integer"
           },
           "nombreEchantillons": {
-            "title": "Nombre d'échantillons",
+            "title": "Numéro d'échantillon",
             "type": "integer"
           }
         }
