@@ -183,13 +183,13 @@ components:
           type: string
         performancesSerologieIgM:
           title: Ig M (J7)
-          "$ref": "#/components/schemas/PerformancesSerologieTest"
+          "$ref": "#/components/schemas/PerformancesSerologieTestJ7"
         performancesSerologieIgG:
           title: Ig G (J14)
-          "$ref": "#/components/schemas/PerformancesSerologieTest"
+          "$ref": "#/components/schemas/PerformancesSerologieTestJ14"
         performancesSerologieIgTotal:
           title: Ig Totales
-          "$ref": "#/components/schemas/PerformancesSerologieTest"
+          "$ref": "#/components/schemas/PerformancesSerologieTestJ14"
         pointsContact:
           title: Points de contact
           type: string
@@ -225,21 +225,37 @@ components:
       example: FR
       title: Pays
       type: string
-    PerformancesSerologieTest:
+    PerformancesSerologieTestJ7:
       title: PerformancesSerologieTest
       type: object
       properties:
         sensibilite:
-          title: Sensibilité cumulée
+          title: Sensibilité cumulée à partir de J7
           type: integer
         specificite:
           title: Specificité (%)
           type: integer
         ecartDeConfiance:
-          title: Intervalle de confiance
+          title: Intervalle de confiance pour le calcul de la spécificité
           type: integer
         nombreEchantillons:
-          title: Numéro d'échantillon
+          title: Nombre d'échantillons pour le calcul de la spécificité
+          type: integer
+    PerformancesSerologieTestJ14:
+      title: PerformancesSerologieTest
+      type: object
+      properties:
+        sensibilite:
+          title: Sensibilité cumulée à partir de J14
+          type: integer
+        specificite:
+          title: Specificité (%)
+          type: integer
+        ecartDeConfiance:
+          title: Intervalle de confiance pour le calcul de la spécificité
+          type: integer
+        nombreEchantillons:
+          title: Nombre d'échantillons pour le calcul de la spécificité
           type: integer
     Distributeur:
       title: Distributeur
