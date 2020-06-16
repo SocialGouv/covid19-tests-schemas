@@ -313,19 +313,19 @@
         "type": "object",
         "properties": {
           "sensibilite": {
-            "title": "Sensibilité cumulée à partir de J7",
+            "title": "Sensibilité cumulée à partir de J7 (%)",
             "type": "integer"
           },
           "specificite": {
-            "title": "Specificité (%)",
+            "title": "Spécificité (%)",
             "type": "integer"
           },
           "ecartDeConfiance": {
-            "title": "Intervalle de confiance pour le calcul de la spécificité",
-            "type": "integer"
+            "title": "Intervalle de confiance pour le calcul de la spécificité (%-%)",
+            "type": "string"
           },
           "nombreEchantillons": {
-            "title": "Nombre d'échantillons pour le calcul de la spécificité",
+            "title": "Nombre d’échantillons pour le calcul de la spécificité",
             "type": "integer"
           }
         }
@@ -335,19 +335,19 @@
         "type": "object",
         "properties": {
           "sensibilite": {
-            "title": "Sensibilité cumulée à partir de J14",
+            "title": "Sensibilité cumulée à partir de J14 (%)",
             "type": "integer"
           },
           "specificite": {
-            "title": "Specificité (%)",
+            "title": "Spécificité (%)",
             "type": "integer"
           },
           "ecartDeConfiance": {
-            "title": "Intervalle de confiance pour le calcul de la spécificité",
-            "type": "integer"
+            "title": "Intervalle de confiance pour le calcul de la spécificité (%-%)",
+            "type": "string"
           },
           "nombreEchantillons": {
-            "title": "Nombre d'échantillons pour le calcul de la spécificité",
+            "title": "Nombre d’échantillons pour le calcul de la spécificité",
             "type": "integer"
           }
         }
