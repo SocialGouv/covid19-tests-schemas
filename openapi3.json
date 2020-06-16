@@ -245,9 +245,6 @@
             "title": "Signalements de réactovigilance",
             "type": "string"
           },
-          "performancesSerologieCNR": {
-            "$ref": "#/components/schemas/PerformancesSerologieCNR"
-          },
           "performancesSerologieIgM": {
             "title": "Ig M (J7)",
             "$ref": "#/components/schemas/PerformancesSerologieTest"
@@ -259,14 +256,6 @@
           "performancesSerologieIgTotal": {
             "title": "Ig Totales",
             "$ref": "#/components/schemas/PerformancesSerologieTest"
-          },
-          "performancesSerologieHAS": {
-            "title": "Validation HAS si sensibilité > 90% et spécificité > 98%",
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PerformancesSerologieHAS"
-            }
           },
           "pointsContact": {
             "title": "Points de contact",
@@ -354,23 +343,6 @@
             "$ref": "#/components/schemas/Pays"
           }
         }
-      },
-      "PerformancesSerologieCNR": {
-        "title": "CNR",
-        "type": "string",
-        "enum": [
-          "Paris",
-          "Lyon"
-        ]
-      },
-      "PerformancesSerologieHAS": {
-        "title": "Validation HAS si sensibilité > 90% et spécificité > 98%",
-        "type": "string",
-        "enum": [
-          "IgM J7",
-          "IgG J14",
-          "Ig total J14"
-        ]
       },
       "NatureProduit": {
         "enum": [
