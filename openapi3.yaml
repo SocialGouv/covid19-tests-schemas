@@ -276,10 +276,11 @@ components:
     TechnologieTest:
       enum:
         - RT-PCR
+        - RT-LAMP
+        - RT-TMA
         - Test rapide
         - Sérologie automatisée
         - Autotest
-        - LAMP
       title: Type de test
       type: string
     TypeReactif:
