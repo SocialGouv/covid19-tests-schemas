@@ -133,14 +133,8 @@ components:
         sensibilite:
           title: Sensibilité clinique déclarée par le fabricant
           type: string
-        sensibiliteCNR:
-          title: Sensibilité clinique évaluée par le CNR
-          type: string
         specificite:
           title: Spécificité clinique déclarée par le fabricant
-          type: string
-        specificiteCNR:
-          title: Spécificité clinique évaluée par le CNR
           type: string
         facteursDeVariation:
           # choix multiple ?
@@ -181,14 +175,17 @@ components:
         signalementsReactovigilance:
           title: Signalements de réactovigilance
           type: string
+        virologieTests:
+          title: Pour les tests de virologie
+          "$ref": "#/components/schemas/VirologieTests"
         performancesSerologieIgM:
-          title: Ig M (J7)
+          title: IgM
           "$ref": "#/components/schemas/PerformancesSerologieTestJ7"
         performancesSerologieIgG:
-          title: Ig G (J14)
+          title: IgG
           "$ref": "#/components/schemas/PerformancesSerologieTestJ14"
         performancesSerologieIgTotal:
-          title: Ig Totales
+          title: IgTotales
           "$ref": "#/components/schemas/PerformancesSerologieTestJ14"
         pointsContact:
           title: Points de contact
@@ -225,6 +222,15 @@ components:
       example: FR
       title: Pays
       type: string
+    VirologieTests:
+      type: object
+      properties:
+        sensibiliteCNR:
+          title: Sensibilité clinique évaluée par le CNR
+          type: string
+        specificiteCNR:
+          title: Spécificité clinique évaluée par le CNR
+          type: string
     PerformancesSerologieTestJ7:
       title: PerformancesSerologieTest
       type: object
