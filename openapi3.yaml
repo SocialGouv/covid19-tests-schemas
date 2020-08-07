@@ -90,6 +90,7 @@ components:
         datePublication:
            type: string
            format: date
+           title: Date de publication
         distributeur:
           "$ref": "#/components/schemas/Distributeur"
         natureProduit:
