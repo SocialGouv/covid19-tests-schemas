@@ -122,7 +122,8 @@
           },
           "datePublication": {
             "type": "string",
-            "format": "date"
+            "format": "date",
+            "title": "Date de publication"
           },
           "distributeur": {
             "$ref": "#/components/schemas/Distributeur"
