@@ -81,6 +81,15 @@ components:
           title: Vérifié ANSM
           type: boolean
           default: false
+        typeValidation:
+           enum:
+             - CNR
+             - Fabricant
+           title: Type de validation
+           type: string
+        datePublication:
+           type: string
+           format: date
         distributeur:
           "$ref": "#/components/schemas/Distributeur"
         natureProduit:
