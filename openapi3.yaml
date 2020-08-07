@@ -81,11 +81,11 @@ components:
           title: Vérifié ANSM
           type: boolean
           default: false
-        typeValidation:
+        typeEvaluation:
            enum:
              - CNR
              - Fabricant
-           title: Type de validation
+           title: Type d'évaluation
            type: string
         datePublication:
            type: string
