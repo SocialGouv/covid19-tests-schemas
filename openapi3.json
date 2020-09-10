@@ -112,19 +112,6 @@
             "type": "boolean",
             "default": false
           },
-          "typeEvaluation": {
-            "enum": [
-              "CNR",
-              "Fabricant"
-            ],
-            "title": "Type d'évaluation",
-            "type": "string"
-          },
-          "datePublication": {
-            "type": "string",
-            "format": "date",
-            "title": "Date de publication"
-          },
           "distributeur": {
             "$ref": "#/components/schemas/Distributeur"
           },
