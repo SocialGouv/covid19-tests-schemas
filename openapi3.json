@@ -403,7 +403,8 @@
           "RT-TMA",
           "Test rapide",
           "Sérologie automatisée",
-          "Autotest"
+          "Autotest",
+          "Antigénique"
         ],
         "title": "Type de test",
         "type": "string"
@@ -454,6 +455,7 @@
           "Salive",
           "Selles",
           "Larmes",
+          "Oropharyngé",
           "Autres"
         ],
         "type": "string"
