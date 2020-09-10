@@ -297,6 +297,7 @@ components:
         - Test rapide
         - Sérologie automatisée
         - Autotest
+        - Antigénique
       title: Type de test
       type: string
     TypeReactif:
@@ -337,6 +338,7 @@ components:
         - Salive
         - Selles
         - Larmes
+        - Oropharyngé
         - Autres
       type: string
     ModaliteAcheminementPrelevement:
