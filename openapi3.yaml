@@ -411,8 +411,8 @@ components:
     StatutRemboursement:
       type: string
       enum:
-        - Remboursé
-        - Non remboursé
+        - Remboursable
+        - Non remboursable
     File:
       type: string
       format: binary
