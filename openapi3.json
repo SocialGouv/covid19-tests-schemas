@@ -546,8 +546,8 @@
       "StatutRemboursement": {
         "type": "string",
         "enum": [
-          "Remboursé",
-          "Non remboursé"
+          "Remboursable",
+          "Non remboursable"
         ]
       },
       "File": {
