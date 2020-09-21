@@ -66,6 +66,10 @@ components:
         statut:
           title: Statut du test
           "$ref": "#/components/schemas/TestStatus"
+        brouillon:
+          title: Brouillon
+          type: boolean
+          default: true
         validation_CE:
           title: Marquage CE
           type: boolean
@@ -81,6 +85,9 @@ components:
           title: Vérifié ANSM
           type: boolean
           default: false
+        evaluation_APHP:
+          title: Évaluation AP-HP
+          "$ref": "#/components/schemas/EvaluationAPHP"
         distributeur:
           "$ref": "#/components/schemas/Distributeur"
         natureProduit:
@@ -124,6 +131,58 @@ components:
           type: integer
           minimum: 0
           maximum: 1000000
+        conditionsConservation:
+          "$ref": "#/components/schemas/ConditionsConservation"
+        temperatureConservationMini:
+          title: Température de conservation minimum
+          type: number
+        temperatureConservationMaxi:
+          title: Température de conservation maximum
+          type: number
+        durabiliteGarantiePeremption:
+          title: Durabilité garantie avant péremption
+          type: number
+        consommables:
+          title: Consommables
+          type: array
+          items:
+            "$ref": "#/components/schemas/Consommables"
+        dateEvaluationCE:
+          title: date d'évaluation par la CE
+          type: string
+          format: date
+        sensibiliteCE:
+          title: Sensibilité CE
+          type: number
+        specificiteCE:
+          title: Spécificité CE
+          type: number
+        dateEvaluationAPHP:
+          title: date d'évaluation par la APHP
+          type: string
+          format: date
+        sensibiliteAPHP:
+          title: Sensibilité APHP
+          type: number
+        specificiteAPHP:
+          title: Spécificité APHP
+          type: number
+        autreEvaluation:
+          title: Autre évaluation (fabricant ou tiers)
+          type: string
+        dateEvaluationFabricant:
+          title: Date d'évaluation par le fabricant ou autre tiers
+          type: string
+          format: date
+        sensibiliteFabricant:
+          title: Sensibilité
+          type: number
+        specificiteFabricant:
+          title: Spécificité
+          type: number
+        delaiResultatMaximal:
+          title: Délai de résultat maximal en jours
+          type: integer
         valeurPredictivePositive:
           title: Valeur Prédictive positive
           type: string
@@ -317,6 +376,12 @@ components:
         - Fermé
         - NC
       type: string
+    ConditionsConservation:
+      title: Conditions de conservation
+      enum:
+        - Température ambiante
+        - Température contrôlée
+      type: string
     TypePrelevement:
       title: Type de prélèvement nécessaire au test
       enum:
@@ -338,6 +403,14 @@ components:
         - Triple emballage
         - Chaîne du froid
         - Autres
+      type: string
+    Consommables:
+      title: Consommables
+      enum:
+        - Ecouvillon
+        - Milieu de transport
+        - Tube de collecte
+        - Autre
       type: string
     FacteurDeVariation:
       title: Facteur faisant varier VPP/VPN/Se/Sp
@@ -408,6 +481,11 @@ components:
         - Non initié
         - Avis défavorable
         - Inconnu
+    EvaluationAPHP:
+      type: string
+      enum:
+        - En cours d’évaluation
+        - Evaluation réalisée
     StatutRemboursement:
       type: string
       enum:
