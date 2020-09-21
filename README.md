@@ -9,9 +9,7 @@ Pour proposer une modification, [éditer le fichier openapi3.yaml](https://githu
 ## Usage
 
 ```js
-
 import spec from "@socialgouv/covid19-tests-schemas";
 
 console.log(spec);
-
 ```
