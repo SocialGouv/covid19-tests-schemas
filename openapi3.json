@@ -202,7 +202,7 @@
             }
           },
           "dateEvaluationCE": {
-            "title": "date d'évaluation par la CE",
+            "title": "Date d'évaluation par la CE",
             "type": "string",
             "format": "date"
           },
@@ -237,11 +237,11 @@
             "format": "date"
           },
           "sensibiliteFabricant": {
-            "title": "Sensibilité",
+            "title": "Sensibilité (autre)",
             "type": "number"
           },
           "specificiteFabricant": {
-            "title": "Spécificité",
+            "title": "Spécificité (autre)",
             "type": "number"
           },
           "delaiResultatMaximal": {
