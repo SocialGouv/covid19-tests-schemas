@@ -85,7 +85,7 @@ components:
           title: Vérifié ANSM
           type: boolean
           default: false
-        evaluation_APHP:
+        evaluationAPHP:
           title: Évaluation AP-HP
           "$ref": "#/components/schemas/EvaluationAPHP"
         distributeur:
