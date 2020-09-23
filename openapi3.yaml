@@ -50,6 +50,7 @@ components:
         - nom
         - statut
         - technologie
+        - producteur
       properties:
         nom:
           title: Nom du test
