@@ -141,7 +141,7 @@ components:
           title: Température de conservation maximum
           type: number
         durabiliteGarantiePeremption:
-          title: Durabilité garantie avant péremption
+          title: Durabilité garantie avant péremption (en mois)
           type: number
         consommables:
           title: Consommables
@@ -182,7 +182,7 @@ components:
           title: Spécificité (autre)
           type: number
         delaiResultatMaximal:
-          title: Délai de résultat maximal en jours
+          title: Délai de résultat maximal (en minutes)
           type: integer
         valeurPredictivePositive:
           title: Valeur Prédictive positive
