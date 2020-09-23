@@ -70,7 +70,8 @@
         "required": [
           "nom",
           "statut",
-          "technologie"
+          "technologie",
+          "producteur"
         ],
         "properties": {
           "nom": {
