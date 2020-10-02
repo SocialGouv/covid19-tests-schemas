@@ -388,12 +388,12 @@ components:
     TypePrelevement:
       title: Type de prélèvement nécessaire au test
       enum:
-        - Sang  total
+        - Sang total
         - Sérum / Plasma
         - Nasopharyngé
-        - Salive :: Crachat
-        - Salive :: écouvillon buccal
-        - Salive :: écouvillon oropharyngé
+        - "Salive : Crachat"
+        - "Salive : écouvillon buccal"
+        - "Salive : écouvillon oropharyngé"
         - Olfactif
         - Selles
         - Autres
