@@ -341,14 +341,15 @@ components:
       type: string
     TechnologieTest:
       enum:
-        - RT-PCR
-        - RT-LAMP
-        - RT-TMA
-        - Test rapide
-        - Sérologie automatisée
-        - Autotest
-        - Antigénique
-      title: Type de test
+        - RT PCR simple
+        - RT PCR multiplex
+        - RT LAMP
+        - Sérologie automatisée (non TDR)
+        - Sérologie rapide (dont TDR et TROD)
+        - Antigénique automatisé
+        - Antigénique non automatisé (dont TRA)
+        - Autres
+      title: Sous-type de test
       type: string
     TypeReactif:
       enum:
@@ -358,10 +359,11 @@ components:
       type: string
     TypeCible:
       enum:
-        - Anticorps
-        - ARN Viral
-        - Antigènes
-      title: Type de détection
+        - Amplification génique
+        - Sérologique
+        - Antigénique
+        - Autre
+      title: Type de test
       type: string
     NombreCibles:
       enum:
@@ -386,15 +388,14 @@ components:
     TypePrelevement:
       title: Type de prélèvement nécessaire au test
       enum:
-        - Sérum
-        - Plasma
-        - Sang
-        - Capillaire
-        - Respiratoire dont naso-pharyngé
-        - Salive
+        - Sang  total
+        - Sérum / Plasma
+        - Nasopharyngé
+        - Salive :: Crachat
+        - Salive :: écouvillon buccal
+        - Salive :: écouvillon oropharyngé
+        - Olfactif
         - Selles
-        - Larmes
-        - Oropharyngé
         - Autres
       type: string
     ModaliteAcheminementPrelevement:
