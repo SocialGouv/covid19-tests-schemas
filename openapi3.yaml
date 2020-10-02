@@ -62,6 +62,10 @@ components:
             - PHILIPS
             - THOMSON
             - AKAI
+        emailFabricant:
+          title: Email du fabricant
+          type: string
+          format: email
         paysProduction:
           "$ref": "#/components/schemas/PaysProduction"
         statut:
