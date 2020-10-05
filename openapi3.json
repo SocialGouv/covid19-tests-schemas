@@ -124,10 +124,6 @@
             "type": "boolean",
             "default": false
           },
-          "evaluationAPHP": {
-            "title": "Évaluation AP-HP",
-            "$ref": "#/components/schemas/EvaluationAPHP"
-          },
           "distributeur": {
             "$ref": "#/components/schemas/Distributeur"
           },
@@ -653,13 +649,6 @@
           "Non initié",
           "Avis défavorable",
           "Inconnu"
-        ]
-      },
-      "EvaluationAPHP": {
-        "type": "string",
-        "enum": [
-          "En cours d’évaluation",
-          "Evaluation réalisée"
         ]
       },
       "StatutRemboursement": {
