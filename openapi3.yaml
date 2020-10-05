@@ -51,6 +51,7 @@ components:
         - statut
         - technologie
         - producteur
+        - typeCible
       properties:
         nom:
           title: Nom du test
@@ -63,7 +64,7 @@ components:
             - THOMSON
             - AKAI
         emailFabricant:
-          title: Email du fabricant
+          title: Email de l'opérateur
           type: string
           format: email
         paysProduction:
@@ -148,45 +149,12 @@ components:
           title: Durabilité garantie avant péremption (en mois)
           type: number
         consommables:
-          title: Consommables
+          title: Consommables indispensables et non compris dans le kit test
           type: array
           items:
             "$ref": "#/components/schemas/Consommables"
-        dateEvaluationCE:
-          title: Date d'évaluation par la CE
-          type: string
-          format: date
-        sensibiliteCE:
-          title: Sensibilité CE
-          type: number
-        specificiteCE:
-          title: Spécificité CE
-          type: number
-        dateEvaluationAPHP:
-          title: date d'évaluation par la APHP
-          type: string
-          format: date
-        sensibiliteAPHP:
-          title: Sensibilité APHP
-          type: number
-        specificiteAPHP:
-          title: Spécificité APHP
-          type: number
-        autreEvaluation:
-          title: Autre évaluation (fabricant ou tiers)
-          type: string
-        dateEvaluationFabricant:
-          title: Date d'évaluation par le fabricant ou autre tiers
-          type: string
-          format: date
-        sensibiliteFabricant:
-          title: Sensibilité (autre)
-          type: number
-        specificiteFabricant:
-          title: Spécificité (autre)
-          type: number
         delaiResultatMaximal:
-          title: Délai de résultat maximal (en minutes)
+          title: Délai maximal d'obtention du résultat du test (en minutes)
           type: integer
         valeurPredictivePositive:
           title: Valeur Prédictive positive
@@ -265,6 +233,44 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/File"
+        sensibiliteAnalytique:
+          title: Sensibilité analytique ou seuil de détection
+          type: string
+        sensibiliteDiagnostique:
+          title: Sensibilité diagnostique en précisant le nombre total d’échantillons positifs en RT-PCR testés
+          type: string
+        specificiteDiagnostique:
+          title: Spécificité diagnostique en précisant le nombre total d’échantillons négatifs testés
+          type: string
+        evaluation1:
+          title: "Evaluation 1"
+          "$ref": "#/components/schemas/Evaluation"
+        evaluation2:
+          title: "Evaluation 2"
+          "$ref": "#/components/schemas/Evaluation"
+        docsEvaluation:
+          title: "Fiche produits, notice et documents d’évaluations"
+          type: array
+          items:
+            "$ref": "#/components/schemas/File"
+    Evaluation:
+      type: object
+      properties:
+        nom:
+          title: Evalué par
+          type: string
+        date:
+          title: Date d'évaluation
+          type: string
+          format: date
+        sensibilite:
+          title: Sensibilité
+          type: string
+          format: text
+        specificite:
+          title: Spécificité
+          type: string
+          format: text
     PaysProduction:
       title: Pays de production
       type: object
