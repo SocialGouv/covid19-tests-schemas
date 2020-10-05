@@ -91,9 +91,6 @@ components:
           title: Vérifié ANSM
           type: boolean
           default: false
-        evaluationAPHP:
-          title: Évaluation AP-HP
-          "$ref": "#/components/schemas/EvaluationAPHP"
         distributeur:
           "$ref": "#/components/schemas/Distributeur"
         natureProduit:
@@ -493,11 +490,6 @@ components:
         - Non initié
         - Avis défavorable
         - Inconnu
-    EvaluationAPHP:
-      type: string
-      enum:
-        - En cours d’évaluation
-        - Evaluation réalisée
     StatutRemboursement:
       type: string
       enum:
