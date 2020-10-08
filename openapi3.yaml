@@ -236,14 +236,17 @@ components:
         sensibiliteDiagnostique:
           title: Sensibilité diagnostique en précisant le nombre total d’échantillons positifs en RT-PCR testés
           type: string
+        nbEchantillonsSensibilite:
+          title: Nombre total d’échantillons positifs en RT-PCR testés pour la sensibilité
+          type: integer
         specificiteDiagnostique:
           title: Spécificité diagnostique en précisant le nombre total d’échantillons négatifs testés
           type: string
+        nbEchantillonsSpecificite:
+          title: Nombre total d’échantillons positifs en RT-PCR testés pour la spécificité
+          type: integer
         evaluation1:
           title: "Evaluation 1"
-          "$ref": "#/components/schemas/Evaluation"
-        evaluation2:
-          title: "Evaluation 2"
           "$ref": "#/components/schemas/Evaluation"
         docsEvaluation:
           title: "Fiche produits, notice et documents d’évaluations"
@@ -261,13 +264,20 @@ components:
           type: string
           format: date
         sensibilite:
-          title: Sensibilité
+          title: Sensibilité analytique ou seuil de détection
           type: string
-          format: text
+        sensibiliteDiagnostique:
+          title: Sensibilité diagnostique
+          type: string
+        nbEchantillonsSensibilite:
+          title: Nombre total d’échantillons positifs en RT-PCR testés pour la sensibilité
+          type: integer
         specificite:
-          title: Spécificité
+          title: "Spécificité diagnostique / clinique"
           type: string
-          format: text
+        nbEchantillonsSpecificite:
+          title: Nombre total d’échantillons négatifs testés testé pour la positivité
+          type: integer
     PaysProduction:
       title: Pays de production
       type: object
