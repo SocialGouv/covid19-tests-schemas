@@ -318,16 +318,20 @@
             "title": "Sensibilité diagnostique en précisant le nombre total d’échantillons positifs en RT-PCR testés",
             "type": "string"
           },
+          "nbEchantillonsSensibilite": {
+            "title": "Nombre total d’échantillons positifs en RT-PCR testés pour la sensibilité",
+            "type": "integer"
+          },
           "specificiteDiagnostique": {
             "title": "Spécificité diagnostique en précisant le nombre total d’échantillons négatifs testés",
             "type": "string"
           },
+          "nbEchantillonsSpecificite": {
+            "title": "Nombre total d’échantillons positifs en RT-PCR testés pour la spécificité",
+            "type": "integer"
+          },
           "evaluation1": {
             "title": "Evaluation 1",
-            "$ref": "#/components/schemas/Evaluation"
-          },
-          "evaluation2": {
-            "title": "Evaluation 2",
             "$ref": "#/components/schemas/Evaluation"
           },
           "docsEvaluation": {
@@ -352,14 +356,24 @@
             "format": "date"
           },
           "sensibilite": {
-            "title": "Sensibilité",
-            "type": "string",
-            "format": "text"
+            "title": "Sensibilité analytique ou seuil de détection",
+            "type": "string"
+          },
+          "sensibiliteDiagnostique": {
+            "title": "Sensibilité diagnostique",
+            "type": "string"
+          },
+          "nbEchantillonsSensibilite": {
+            "title": "Nombre total d’échantillons positifs en RT-PCR testés pour la sensibilité",
+            "type": "integer"
           },
           "specificite": {
-            "title": "Spécificité",
-            "type": "string",
-            "format": "text"
+            "title": "Spécificité diagnostique / clinique",
+            "type": "string"
+          },
+          "nbEchantillonsSpecificite": {
+            "title": "Nombre total d’échantillons négatifs testés testé pour la positivité",
+            "type": "integer"
           }
         }
       },
