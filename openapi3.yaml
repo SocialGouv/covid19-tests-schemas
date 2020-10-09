@@ -364,7 +364,7 @@ components:
         - Sérologie automatisée (non TDR)
         - Sérologie rapide (dont TDR et TROD)
         - Antigénique automatisé
-        - Antigénique non automatisé (dont TRA)
+        - Antigénique non automatisé (dont TROD)
         - Autres
       title: Sous-type de test
       type: string
