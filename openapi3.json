@@ -124,6 +124,11 @@
             "type": "boolean",
             "default": false
           },
+          "conformite_HAS": {
+            "title": "Conformité HAS",
+            "type": "boolean",
+            "default": false
+          },
           "distributeur": {
             "$ref": "#/components/schemas/Distributeur"
           },
@@ -311,11 +316,11 @@
             }
           },
           "sensibiliteAnalytique": {
-            "title": "Sensibilité analytique ou seuil de détection",
+            "title": "Sensibilité analytique (seuil de détection)",
             "type": "string"
           },
           "sensibiliteDiagnostique": {
-            "title": "Sensibilité diagnostique en précisant le nombre total d’échantillons positifs en RT-PCR testés",
+            "title": "Sensibilité diagnostique",
             "type": "string"
           },
           "nbEchantillonsSensibilite": {
@@ -323,7 +328,7 @@
             "type": "integer"
           },
           "specificiteDiagnostique": {
-            "title": "Spécificité diagnostique en précisant le nombre total d’échantillons négatifs testés",
+            "title": "Spécificité diagnostique",
             "type": "string"
           },
           "nbEchantillonsSpecificite": {
@@ -331,7 +336,7 @@
             "type": "integer"
           },
           "evaluation1": {
-            "title": "Evaluation 1",
+            "title": "Evaluation",
             "$ref": "#/components/schemas/Evaluation"
           },
           "docsEvaluation": {
@@ -356,11 +361,11 @@
             "format": "date"
           },
           "sensibilite": {
-            "title": "Sensibilité analytique ou seuil de détection",
+            "title": "Sensibilité analytique (seuil de détection)",
             "type": "string"
           },
           "sensibiliteDiagnostique": {
-            "title": "Sensibilité diagnostique",
+            "title": "Sensibilité diagnostique / clinique",
             "type": "string"
           },
           "nbEchantillonsSensibilite": {
@@ -644,6 +649,7 @@
           "Médecine de ville",
           "Laboratoires de ville",
           "Pharmacies",
+          "Infirmier(e)s",
           "Autre"
         ]
       },
