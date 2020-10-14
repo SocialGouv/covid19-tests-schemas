@@ -332,7 +332,7 @@
             "type": "string"
           },
           "nbEchantillonsSpecificite": {
-            "title": "Nombre total d’échantillons positifs en RT-PCR testés pour la spécificité",
+            "title": "Nombre total d’échantillons négatifs en RT-PCR testés pour la spécificité",
             "type": "integer"
           },
           "evaluation1": {
@@ -377,7 +377,7 @@
             "type": "string"
           },
           "nbEchantillonsSpecificite": {
-            "title": "Nombre total d’échantillons négatifs testés testé pour la positivité",
+            "title": "Nombre total d’échantillons négatifs testés pour la spécificité",
             "type": "integer"
           }
         }
