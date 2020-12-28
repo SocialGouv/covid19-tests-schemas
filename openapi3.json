@@ -174,7 +174,7 @@
             }
           },
           "proteines": {
-            "title": "Types de protéines ciblées par le test",
+            "title": "Types de protéines détectées par le test",
             "uniqueItems": true,
             "type": "array",
             "items": {
@@ -573,7 +573,7 @@
         "type": "string"
       },
       "TypeProteine": {
-        "title": "Types de protéines ciblées par le test",
+        "title": "Types de protéines détectées par le test",
         "enum": [
           "N",
           "S"
