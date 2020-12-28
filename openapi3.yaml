@@ -128,7 +128,7 @@ components:
           items:
             "$ref": "#/components/schemas/TypePrelevement"
         proteines:
-          title: Types de protéines ciblées par le test"
+          title: Types de protéines ciblées par le test
           uniqueItems: true
           type: array
           items:
