@@ -6,6 +6,7 @@ Lisible sur : https://socialgouv.github.io/covid19-tests-schemas
 
 Pour proposer une modification, [éditer le fichier openapi3.yaml](https://github.com/SocialGouv/covid19-tests-schemas/edit/master/openapi3.yaml) et envoyer une pull request.
 
+
 ## Usage
 
 ```js
