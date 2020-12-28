@@ -127,6 +127,12 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/TypePrelevement"
+        proteines:
+          title: Types de protéines ciblées par le test"
+          uniqueItems: true
+          type: array
+          items:
+            "$ref": "#/components/schemas/TypeProteine"
         modalitesAcheminementPrelevements:
           title: Modalités d'acheminement des prélèvements
           uniqueItems: true
@@ -418,6 +424,12 @@ components:
         - "Haleine / souffle"
         - Selles
         - Autres
+      type: string
+    TypeProteine:
+      title: Types de protéines ciblées par le test
+      enum:
+        - N
+        - S
       type: string
     ModaliteAcheminementPrelevement:
       title: Modalité d'acheminement des prélèvements
