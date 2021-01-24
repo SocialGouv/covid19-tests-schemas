@@ -370,6 +370,7 @@ components:
       enum:
         - RT PCR simple
         - RT PCR multiplex
+        - RT PCR de criblage
         - RT LAMP
         - Sérologie automatisée (non TDR)
         - Sérologie rapide (dont TDR et TROD)
