@@ -48,23 +48,20 @@ components:
       type: object
       required:
         - nom
-        - statut
-        - technologie
         - producteur
-        - typeCible
       properties:
         nom:
           title: Nom du test
           type: string
         producteur:
-          title: Fabricant
+          title: Nom du fabricant
           type: string
           example:
             - PHILIPS
             - THOMSON
             - AKAI
-        emailFabricant:
-          title: Email de l'opérateur
+        emailOperateur:
+          title: Email nominatif de l’opérateur (fabricant, distributeur, mandataire, importateur) 
           type: string
           format: email
         paysProduction:
@@ -76,6 +73,10 @@ components:
           title: Brouillon
           type: boolean
           default: true
+        estConsidereComplet:
+          title: Le dossier est complet
+          type: boolean
+          default: false
         validation_CE:
           title: Marquage CE
           type: boolean
@@ -105,6 +106,8 @@ components:
           "$ref": "#/components/schemas/TypeReactif"
         typeCible:
           "$ref": "#/components/schemas/TypeCible"
+        typeTest:
+          "$ref": "#/components/schemas/TypeTest"
         nombreCibles:
           "$ref": "#/components/schemas/NombreCibles"
         machinesNecessaires:
@@ -152,6 +155,9 @@ components:
         temperatureConservationMaxi:
           title: Température de conservation maximum
           type: number
+        temperatureConservationMoy:
+          title: Température de conservation moyenne
+          type: number
         durabiliteGarantiePeremption:
           title: Durabilité garantie avant péremption (en mois)
           type: number
@@ -170,10 +176,10 @@ components:
           title: Valeur Prédictive négative
           type: string
         sensibilite:
-          title: Sensibilité clinique déclarée par le fabricant
+          title: Sensibilité clinique déclarée par le fabricant (en %)
           type: string
         specificite:
-          title: Spécificité clinique déclarée par le fabricant
+          title: Spécificité clinique déclarée par le fabricant (en %)
           type: string
         facteursDeVariation:
           # choix multiple ?
@@ -186,10 +192,10 @@ components:
           title: Limite de détection
           type: string
         fourchettePrixBasse:
-          title: Fourchette de prix basse du test (par test)
+          title: Fourchette de prix basse du test (en euros par test)
           type: integer
         fourchettePrixHaute:
-          title: Fourchette de prix haute du test (par test)
+          title: Fourchette de prix haute du test (en euros par test)
           type: integer
         disponibiliteNationale:
           "$ref": "#/components/schemas/DisponibiliteNationale"
@@ -230,21 +236,31 @@ components:
           title: Points de contact
           type: string
         commentaires:
-          title: Commentaires internes
+          title: Commentaires non visibles publiquement
           type: string
         commentairesPublics:
           title: Commentaires publics
           type: string
         documents:
-          title: "Fiche produits, notice et documents"
+          title: "Documents"
+          type: array
+          items:
+            "$ref": "#/components/schemas/File"
+        ficheProduit:
+          title: "Fiche produit"
+          type: array
+          items:
+            "$ref": "#/components/schemas/File"
+        ficheSynthese:
+          title: "Fiche de synthèse (au format PDF)"
           type: array
           items:
             "$ref": "#/components/schemas/File"
         sensibiliteAnalytique:
-          title: Sensibilité analytique (seuil de détection)
+          title: Sensibilité analytique
           type: string
         sensibiliteDiagnostique:
-          title: Sensibilité diagnostique
+          title: Sensibilité diagnostique (en %)
           type: string
         nbEchantillonsSensibilite:
           title: Nombre total d’échantillons positifs en RT-PCR testés pour la sensibilité
@@ -259,7 +275,7 @@ components:
           title: "Evaluation"
           "$ref": "#/components/schemas/Evaluation"
         docsEvaluation:
-          title: "Fiche produits, notice et documents d’évaluations"
+          title: "Documents d’évaluations"
           type: array
           items:
             "$ref": "#/components/schemas/File"
@@ -274,10 +290,10 @@ components:
           type: string
           format: date
         sensibilite:
-          title: Sensibilité analytique (seuil de détection)
+          title: Sensibilité analytique (en % seuil de détection)
           type: string
         sensibiliteDiagnostique:
-          title: Sensibilité diagnostique / clinique
+          title: Sensibilité diagnostique / clinique (en %)
           type: string
         nbEchantillonsSensibilite:
           title: Nombre total d’échantillons positifs en RT-PCR testés pour la sensibilité
@@ -370,7 +386,6 @@ components:
       enum:
         - RT PCR simple
         - RT PCR multiplex
-        - RT PCR de criblage
         - RT LAMP
         - Sérologie automatisée (non TDR)
         - Sérologie rapide (dont TDR et TROD)
@@ -385,13 +400,24 @@ components:
         - Extraction
       title: Type de réactif
       type: string
-    TypeCible:
+    TypeTest:
       enum:
         - Amplification génique
         - Sérologique
         - Antigénique
         - Autre
       title: Type de test
+      type: string
+    TypeCible:
+      enum:
+        - Protéines N
+        - Protéines S
+        - IgM
+        - IgG
+        - IgA
+        - Ig Totaux
+        - Autre
+      title: Type de cible
       type: string
     NombreCibles:
       enum:
@@ -414,7 +440,7 @@ components:
         - Température contrôlée
       type: string
     TypePrelevement:
-      title: Type de prélèvement nécessaire au test
+      title: Type de prélèvement (validé dans la notice du text)
       enum:
         - Sang total
         - Sérum / Plasma
@@ -424,6 +450,8 @@ components:
         - "Écouvillon oropharyngé"
         - "Haleine / souffle"
         - Selles
+        - Nasal
+        - Expectoration
         - Autres
       type: string
     TypeProteine:
