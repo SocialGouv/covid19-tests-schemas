@@ -69,10 +69,7 @@
         "type": "object",
         "required": [
           "nom",
-          "statut",
-          "technologie",
-          "producteur",
-          "typeCible"
+          "producteur"
         ],
         "properties": {
           "nom": {
@@ -80,7 +77,7 @@
             "type": "string"
           },
           "producteur": {
-            "title": "Fabricant",
+            "title": "Nom du fabricant",
             "type": "string",
             "example": [
               "PHILIPS",
@@ -88,8 +85,8 @@
               "AKAI"
             ]
           },
-          "emailFabricant": {
-            "title": "Email de l'opérateur",
+          "emailOperateur": {
+            "title": "Email nominatif de l’opérateur (fabricant, distributeur, mandataire, importateur)",
             "type": "string",
             "format": "email"
           },
@@ -104,6 +101,11 @@
             "title": "Brouillon",
             "type": "boolean",
             "default": true
+          },
+          "estConsidereComplet": {
+            "title": "Le dossier est complet",
+            "type": "boolean",
+            "default": false
           },
           "validation_CE": {
             "title": "Marquage CE",
@@ -141,8 +143,11 @@
           "typeReactif": {
             "$ref": "#/components/schemas/TypeReactif"
           },
-          "typeCible": {
-            "$ref": "#/components/schemas/TypeCible"
+          "typeCibleTest": {
+            "$ref": "#/components/schemas/TypeCibleTest"
+          },
+          "typeTest": {
+            "$ref": "#/components/schemas/TypeTest"
           },
           "nombreCibles": {
             "$ref": "#/components/schemas/NombreCibles"
@@ -206,6 +211,10 @@
             "title": "Température de conservation maximum",
             "type": "number"
           },
+          "temperatureConservationMoy": {
+            "title": "Température de conservation moyenne",
+            "type": "number"
+          },
           "durabiliteGarantiePeremption": {
             "title": "Durabilité garantie avant péremption (en mois)",
             "type": "number"
@@ -230,11 +239,11 @@
             "type": "string"
           },
           "sensibilite": {
-            "title": "Sensibilité clinique déclarée par le fabricant",
+            "title": "Sensibilité clinique déclarée par le fabricant (en %)",
             "type": "string"
           },
           "specificite": {
-            "title": "Spécificité clinique déclarée par le fabricant",
+            "title": "Spécificité clinique déclarée par le fabricant (en %)",
             "type": "string"
           },
           "facteursDeVariation": {
@@ -250,11 +259,11 @@
             "type": "string"
           },
           "fourchettePrixBasse": {
-            "title": "Fourchette de prix basse du test (par test)",
+            "title": "Fourchette de prix basse du test (en euros par test)",
             "type": "integer"
           },
           "fourchettePrixHaute": {
-            "title": "Fourchette de prix haute du test (par test)",
+            "title": "Fourchette de prix haute du test (en euros par test)",
             "type": "integer"
           },
           "disponibiliteNationale": {
@@ -309,7 +318,7 @@
             "type": "string"
           },
           "commentaires": {
-            "title": "Commentaires internes",
+            "title": "Commentaires non visibles publiquement",
             "type": "string"
           },
           "commentairesPublics": {
@@ -317,18 +326,32 @@
             "type": "string"
           },
           "documents": {
-            "title": "Fiche produits, notice et documents",
+            "title": "Documents",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/File"
+            }
+          },
+          "ficheProduit": {
+            "title": "Fiche produit",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/File"
+            }
+          },
+          "ficheSynthese": {
+            "title": "Fiche de synthèse (au format PDF)",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/File"
             }
           },
           "sensibiliteAnalytique": {
-            "title": "Sensibilité analytique (seuil de détection)",
+            "title": "Sensibilité analytique",
             "type": "string"
           },
           "sensibiliteDiagnostique": {
-            "title": "Sensibilité diagnostique",
+            "title": "Sensibilité diagnostique (en %)",
             "type": "string"
           },
           "nbEchantillonsSensibilite": {
@@ -348,7 +371,7 @@
             "$ref": "#/components/schemas/Evaluation"
           },
           "docsEvaluation": {
-            "title": "Fiche produits, notice et documents d’évaluations",
+            "title": "Documents d’évaluations",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/File"
@@ -369,11 +392,11 @@
             "format": "date"
           },
           "sensibilite": {
-            "title": "Sensibilité analytique (seuil de détection)",
+            "title": "Sensibilité analytique (en % seuil de détection)",
             "type": "string"
           },
           "sensibiliteDiagnostique": {
-            "title": "Sensibilité diagnostique / clinique",
+            "title": "Sensibilité diagnostique / clinique (en %)",
             "type": "string"
           },
           "nbEchantillonsSensibilite": {
@@ -522,7 +545,7 @@
         "title": "Type de réactif",
         "type": "string"
       },
-      "TypeCible": {
+      "TypeTest": {
         "enum": [
           "Amplification génique",
           "Sérologique",
@@ -530,6 +553,19 @@
           "Autre"
         ],
         "title": "Type de test",
+        "type": "string"
+      },
+      "TypeCibleTest": {
+        "enum": [
+          "Protéines N",
+          "Protéines S",
+          "IgM",
+          "IgG",
+          "IgA",
+          "Ig Totaux",
+          "Autre"
+        ],
+        "title": "Type de cible",
         "type": "string"
       },
       "NombreCibles": {
@@ -559,7 +595,7 @@
         "type": "string"
       },
       "TypePrelevement": {
-        "title": "Type de prélèvement nécessaire au test",
+        "title": "Type de prélèvement (validé dans la notice du text)",
         "enum": [
           "Sang total",
           "Sérum / Plasma",
@@ -569,6 +605,8 @@
           "Écouvillon oropharyngé",
           "Haleine / souffle",
           "Selles",
+          "Nasal",
+          "Expectoration",
           "Autres"
         ],
         "type": "string"
@@ -674,7 +712,13 @@
         "type": "string",
         "enum": [
           "Public",
-          "Non public"
+          "Non public",
+          "Non signé",
+          "Signé",
+          "À vérifier",
+          "Refusé",
+          "Validé",
+          "Incomplet"
         ]
       },
       "ValidationStatusCNR": {
