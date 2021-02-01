@@ -241,6 +241,9 @@ components:
         commentairesPublics:
           title: Commentaires publics
           type: string
+        informationPublique:
+          title: Information publique
+          type: string
         documents:
           title: "Documents"
           type: array
