@@ -8,6 +8,7 @@ Pour proposer une modification, [éditer le fichier openapi3.yaml](https://githu
 
 Une release est automatiquement publiée avec [semantic-release](https://github.com/semantic-release/semantic-release) si des [commits conventionnels](https://www.conventionalcommits.org/en/v1.0.0/) sont présents.
 
+
 ## Usage
 
 ```js
