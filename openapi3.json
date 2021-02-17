@@ -143,8 +143,8 @@
           "typeReactif": {
             "$ref": "#/components/schemas/TypeReactif"
           },
-          "typeCibleTest": {
-            "$ref": "#/components/schemas/TypeCibleTest"
+          "cibles": {
+            "$ref": "#/components/schemas/Cibles"
           },
           "typeTest": {
             "$ref": "#/components/schemas/TypeTest"
@@ -559,7 +559,7 @@
         "title": "Type de test",
         "type": "string"
       },
-      "TypeCibleTest": {
+      "Cibles": {
         "enum": [
           "Protéines N",
           "Protéines S",
@@ -569,8 +569,8 @@
           "Ig Totaux",
           "Autre"
         ],
-        "title": "Type de cible",
-        "type": "string"
+        "title": "Cibles",
+        "type": "array"
       },
       "NombreCibles": {
         "enum": [
