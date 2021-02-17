@@ -104,8 +104,8 @@ components:
           "$ref": "#/components/schemas/TechnologieTest"
         typeReactif:
           "$ref": "#/components/schemas/TypeReactif"
-        typeCibleTest:
-          "$ref": "#/components/schemas/TypeCibleTest"
+        cibles:
+          "$ref": "#/components/schemas/Cibles"
         typeTest:
           "$ref": "#/components/schemas/TypeTest"
         nombreCibles:
@@ -412,7 +412,7 @@ components:
         - Autre
       title: Type de test
       type: string
-    TypeCibleTest:
+    Cibles:
       enum:
         - Protéines N
         - Protéines S
@@ -421,8 +421,8 @@ components:
         - IgA
         - Ig Totaux
         - Autre
-      title: Type de cible
-      type: string
+      title: Cibles
+      type: array
     NombreCibles:
       enum:
         - 1
